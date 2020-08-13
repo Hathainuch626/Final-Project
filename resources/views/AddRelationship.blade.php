@@ -213,7 +213,7 @@
                     </div>
                 </form>
             </div>
-
+            <!-- Button trigger modal -->
             <!-- Button trigger modal -->
             <button type="button" class="btn btn-success" data-toggle="modal" data-target="#staticBackdrop" style="margin: 100px 10px 20px -100px">บันทึกข้อมูล</button>
 
