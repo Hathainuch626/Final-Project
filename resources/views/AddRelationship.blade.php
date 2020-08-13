@@ -209,7 +209,6 @@
                                 </div>
                             </div>
                         </div>
-<<<<<<< HEAD
                             <button type="submit" class="btn btn-secondary" style="margin: 10px 10px 20px 180px ">เพิ่มบุคคล</button>
                     </div>
                 </form>
