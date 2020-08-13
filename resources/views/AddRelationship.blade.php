@@ -209,12 +209,11 @@
                                 </div>
                             </div>
                         </div>
-<<<<<<< HEAD
                             <button type="submit" class="btn btn-secondary" style="margin: 10px 10px 20px 180px ">เพิ่มบุคคล</button>
                     </div>
                 </form>
             </div>
-            <!-- Button trigger modal -->
+            
             <!-- Button trigger modal -->
             <button type="button" class="btn btn-success" data-toggle="modal" data-target="#staticBackdrop" style="margin: 100px 10px 20px -100px">บันทึกข้อมูล</button>
 
@@ -240,14 +239,6 @@
             </div>
                 <button type="submitt" class="btn btn-danger" style="margin: 100px 10px 20px 20px">ยกเลิก</button>
                 </div>
-=======
-                    
-                       
-                            <button type="submit" class="btn btn-success" style="margin: 10px 10px 20px 180px ">เพิ่มบุคคล</button>
-                        
-                    </div>
-                </form>
->>>>>>> 8a86d21afbda4b151999fba43c203b677d532958
             </div>
         </div>
     </div>
