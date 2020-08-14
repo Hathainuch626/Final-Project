@@ -239,8 +239,11 @@
             </div>
                 <button type="submitt" class="btn btn-danger" style="margin: 100px 10px 20px 20px">ยกเลิก</button>
                 </div>
+<<<<<<< HEAD
+=======
+              </div>
+>>>>>>> 61a325ad60bd298f1c6829297f9b3d211f2be5e4
             </div>
         </div>
     </div>
-</div>
 @endsection
