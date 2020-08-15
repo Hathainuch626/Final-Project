@@ -338,6 +338,7 @@
                             </div>
                         </div>
 
+                        
                         <div class="form-group row">
                             <label for="password-confirm" class="col-md-3 col-form-label text-md-right">{{ __('ยืนยันรหัสผ่านอีกครั้ง') }}</label>
 
@@ -346,14 +347,31 @@
                             </div>
                         </div>
 
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('บันทึกประวัติส่วนตัว') }}
-                                    
-                                </button>
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop" style="margin: 10px 10px 20px 250px">บันทึกประวัติส่วนตัว</button>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                    <h5 class="modal-title" id="staticBackdropLabel">ยืนยันข้อมูล</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                            </div>
+                            <div class="modal-body">
+                                คุณได้บันทึกประวัติส่วนตัวเรียบร้อยแล้ว
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary">ตกลง</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">ปิด</button>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+                </div>
                     </form>
                 </div>
             </div>

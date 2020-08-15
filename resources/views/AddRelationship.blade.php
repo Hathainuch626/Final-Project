@@ -215,7 +215,7 @@
             </div>
             
             <!-- Button trigger modal -->
-            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#staticBackdrop" style="margin: 100px 10px 20px -100px">บันทึกข้อมูล</button>
+            <button type="submitt" class="btn btn-success" data-toggle="modal" data-target="#staticBackdrop" style="margin: 100px 10px 20px -120px">บันทึกข้อมูล</button>
 
             <!-- Modal -->
             <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -237,12 +237,9 @@
                     </div>
                 </div>
             </div>
-                <button type="submitt" class="btn btn-danger" style="margin: 100px 10px 20px 20px">ยกเลิก</button>
+                <button type="button" class="btn btn-warning" style="margin: 100px 10px 20px 20px">แก้ไข</button>
+                <button type="button" class="btn btn-danger" style="margin: 100px 10px 20px 20px">ยกเลิก</button>
                 </div>
-<<<<<<< HEAD
-=======
-              </div>
->>>>>>> 61a325ad60bd298f1c6829297f9b3d211f2be5e4
             </div>
         </div>
     </div>
