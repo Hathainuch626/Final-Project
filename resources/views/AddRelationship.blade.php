@@ -237,7 +237,7 @@
                     </div>
                 </div>
             </div>
-                <button type="button" class="btn btn-warning" style="margin: 100px 10px 20px 20px">แก้ไข</button>
+                
                 <button type="button" class="btn btn-danger" style="margin: 100px 10px 20px 20px">ยกเลิก</button>
                 </div>
             </div>
