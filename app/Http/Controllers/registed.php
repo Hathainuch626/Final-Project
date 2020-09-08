@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\login;
+use App\relationmodel;
 use Illuminate\Http\Request;
 
 class registed extends Controller
@@ -125,4 +126,16 @@ class registed extends Controller
             return response()->json(['success' => false,'message' => 'User not found.']);
         }
     }
+
+    public function relationformset(Request $request)
+    {
+        $setrelation=new relationmodel();
+        $setrelation->my=$request->get('my');
+        $setrelation->parent=$request->get('parent');
+        $setrelation->relation=$request->get('relationship2');
+        $setrelation->save();
+
+        return redirect('AddRelationship');
+    }
+
 }

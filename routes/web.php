@@ -27,3 +27,5 @@ Route::get('/Account', function () {
     return view('Account');
 });
 Route::get('/AddRelationship','AddRelationship@index');
+Route::get('/Maps','MapsController@index');
+Route::get('inrelation','registed@relationformset');

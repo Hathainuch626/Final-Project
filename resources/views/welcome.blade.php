@@ -110,9 +110,9 @@
                     <svg class="bd-placeholder-img" width="100%" height="570px" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"><rect width="100%" height="100%" fill="#777"/></svg>
                     <div class="container">
                       <div class="carousel-caption text-left">
+                      <img src="organization.PNG" class="imgtop" alt="bal" width= "200" height="200" >
                         <h1>Sign Up with MyFamilyTree</h1>
                         <p>เพียงคุณสมัครสมาชิก คุณจะรู้ความสัมพันธ์ของครอบครัวในรูปแบบแผนภูมิต้นไม้ </p>
-                        
                       </div>
                     </div>
                   </div>
@@ -120,6 +120,7 @@
                     <svg class="bd-placeholder-img" width="100%" height="570px" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"><rect width="100%" height="100%" fill="#777"/></svg>
                     <div class="container">
                       <div class="carousel-caption">
+                      <img src="tree.PNG" class="imgtop" alt="bal" width= "200" height="200" >
                         <h1>Create your online family tree</h1>
                         <p>สมัครสมาชิกแล้วมาสร้างแผนภูมิต้นไม้ครอบครัวออนไลน์ของคุณกันเถอะ! </p>
                         <p><a class="btn btn-lg btn-primary" href="#" role="button">สร้างแผนภูมิต้นไม้</a></p>
@@ -130,9 +131,9 @@
                     <svg class="bd-placeholder-img" width="100%" height="570px" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"><rect width="100%" height="100%" fill="#777"/></svg>
                     <div class="container">
                       <div class="carousel-caption text-right">
+                      <img src="link.PNG" class="imgtop" alt="bal" width= "200" height="200" >
                         <h1>Story Family Your</h1>
                         <p>แบ่งปันเรื่องราวครอบครัวของคุณ และคุณสามารถค้นหาตำแหน่งบุคคลในครอบครัวของคุณได้อีกด้วย!</p>
-                        
                       </div>
                     </div>
                   </div>
@@ -180,7 +181,7 @@
                   <p class="lead"></p>
                 </div>
                 <div class="col-md-5">
-                  <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 500x500"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
+                  <img src="dnaa1.PNG" class="imgtree" alt="treedna" width= "500" height="500" >
                 </div>
               </div>
           
@@ -193,7 +194,7 @@
                   <p class="lead"></p>
                 </div>
                 <div class="col-md-5 order-md-1">
-                  <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 500x500"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
+                  <img src="family-tree4.PNG" class="imgtree" alt="treedna" width= "500" height="500" >
                 </div>
               </div>
           
@@ -206,7 +207,7 @@
                   <p class="lead"></p>
                 </div>
                 <div class="col-md-5">
-                  <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 500x500"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
+                  <img src="feedback.PNG" class="imgtree" alt="treedna" width= "500" height="500" >
                 </div>
               </div>
 

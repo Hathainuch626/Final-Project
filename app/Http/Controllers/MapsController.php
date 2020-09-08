@@ -4,14 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class NewsController extends Controller
+class MapsController extends Controller
 {
     //
 
     public function index()
     {
-        return  view('index');
+        return  view('Maps');
     }
-
-    
 }
