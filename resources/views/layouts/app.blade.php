@@ -73,44 +73,43 @@
                             @endif
                             <?php } ?>
                             <?php if(isset($_SESSION['NAME'])) { ?>
-                            <li class="nav-item dropdown">
-                            
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    <button type="button" class="btn btn-primary">
-                                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-envelope" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                                <div class="btn-group" role="group">
+                                    <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <?php echo $_SESSION['NAME'];?> <span class="caret"></span>
+
+                                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-envelope" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                             <path fill-rule="evenodd" d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2zm13 2.383l-4.758 2.855L15 11.114v-5.73zm-.034 6.878L9.271 8.82 8 9.583 6.728 8.82l-5.694 3.44A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.739zM1 11.114l4.758-2.876L1 5.383v5.73z"/>
                                     </svg>
-                                        <span class="badge badge-light">9</span>
-                                        <span class="sr-only">unread messages</span>
-                                    </button>
-                                <?php echo $_SESSION['NAME'];?> <span class="caret"></span>
-                                </a>
+                                        <span class="badge badge-light">10</span> 
+                                        <span class="sr-only">unread messages</span></button>
 
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <div>
-                                <a class="dropdown-item" href="{{url('Account')}}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Account') }}
-                                    </a>
+                                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                            <div>
+                                                <a class="dropdown-item" href="{{url('Account')}}"
+                                                    onclick="event.preventDefault();
+                                                        document.getElementById('logout-form').submit();">
+                                                    {{ __('Account') }}
+                                                </a>
 
                                     <form id="logout-form" action="{{url('Account')}}"  style="display: none;">
                                         @csrf
                                     </form>
-                                </div>
-                                <div>
-                                <a class="dropdown-item" href="{{url('home')}}"
-                                       onclick="event.preventDefault();
+                                </div>          
+                                    <div>
+                                        <a class="dropdown-item" href="{{url('home')}}"
+                                            onclick="event.preventDefault();
                                                      document.getElementById('logout-form2').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
+                                            {{ __('Logout') }}
+                                        </a>
 
                                     <form id="logout-form2" action="{{ url('home')}}" style="display: none;">
                                         @csrf
                                     </form>
                                 </div>
-                                </div>
-                            <?php } ?>
+                            </div>
+                        </div>
+                        <?php } ?>
                     </ul>
                 </div>
             </div>

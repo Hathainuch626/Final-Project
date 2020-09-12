@@ -95,6 +95,7 @@
                                     <button class="dropdown-item" type="button">สร้างต้นไม้ครอบครัว</button>
                             </div>
                         </div>
+                    <a class="list-group-item list-group-item-action " id="list-repassword-list" data-toggle="list" href="#list-repassword" role="tab" aria-controls="repassword">เปลี่ยนรหัสผ่าน</a>
                     <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-settings" role="tab" aria-controls="logout">ออกจากระบบ</a>
                 
                 </div>
