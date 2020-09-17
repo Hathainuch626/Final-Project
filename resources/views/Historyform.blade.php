@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card" style="margin: 100px 15px 10px">
+            <div class="card" style="margin: 20px 15px 10px">
                 <div class="card-header">{{ __('แบบฟอร์มกรอกประวัติส่วนตัว') }}</div>
 
                 <div class="card-body">
@@ -355,22 +355,22 @@
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                    <h5 class="modal-title" id="staticBackdropLabel">ยืนยันข้อมูล</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                            </div>
-                            <div class="modal-body">
-                                คุณได้บันทึกประวัติส่วนตัวเรียบร้อยแล้ว
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-primary">ตกลง</button>
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">ปิด</button>
+                                        <h5 class="modal-title" id="staticBackdropLabel">ยืนยันข้อมูล</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        คุณได้บันทึกประวัติส่วนตัวเรียบร้อยแล้ว
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-primary">ตกลง</button>
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">ปิด</button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
                 </div>
                     </form>
                 </div>

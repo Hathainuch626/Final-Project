@@ -16,8 +16,7 @@ class registed extends Controller
     public function index()
     {
         //
-        //return view('Project1.verify');
-        return  view('index');
+        return  view('Account');
     }
     /**
      * Show the form for creating a new resource.
@@ -102,8 +101,8 @@ class registed extends Controller
     
     public function loginuser(Request $request) {
         session_start();
-        $email = $request->input('email');
-        $password = $request->input('password');
+        $email = $request->get('email');
+        $password = $request->get('password');
 
         $user = login::where('Email', $email)->first();
         if ($user) {

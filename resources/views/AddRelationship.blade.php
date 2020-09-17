@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">        
-            <div style="margin: 100px 15px 10px">
+            <div style="margin: 50px 15px 10px">
                 <div class="col-md-6 ">
                     <div class="card" style="margin: 40px -300px 20px 220px">
                         <div class="card-header">{{ __('เพิ่มความสัมพันธ์') }}</div>
@@ -46,8 +46,8 @@
                                             <option>หลาน</option>
 
                                         </select>
+                                    </div>
                                 </div>
-                            </div>
                         </div>
                         
                         <div class="form-group row">                
@@ -115,9 +115,9 @@
                             </select>
                         </div>
                    
-                        <button type="button" class="btn btn-success" style="margin: 20px 10px 20px 50px">บันทึกข้อมูล</button>
-                        <button type="button" class="btn btn-warning" style="margin: 20px 10px 20px 50px">แก้ไข</button>
-                        <button type="button" class="btn btn-danger" style="margin: 20px 10px 20px 50px">ยกเลิก</button>
+                            <button type="button" class="btn btn-success" style="margin: 20px 10px 20px 50px">บันทึกข้อมูล</button>
+                            <button type="button" class="btn btn-warning" style="margin: 20px 10px 20px 50px">แก้ไข</button>
+                            <button type="button" class="btn btn-danger" style="margin: 20px 10px 20px 50px">ยกเลิก</button>
                     </div>
                 </div>
             </div>
