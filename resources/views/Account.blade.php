@@ -70,43 +70,31 @@
               
                 ?>
         </div>
-    </div>
-        
-                <div class="w3-sidebar w3-bar-block w3-light-grey w3-card" style="width:200px; margin-top: 60px;">
-                    <div class="list-group" id="list-tab" role="tablist">
-                        <a href="#" class="w3-bar-item w3-button ">
-                            <h3 class="w3-bar-item">เมนู</h3>
-                        </a>
-                        <a href="#list-home" id="list-home-list" data-toggle="list" class="w3-bar-item w3-button" role="tab" aria-controls="home" >
-                            <i class="fas fa-home"></i>หน้าหลัก</a>
-                        <a href="#list-profile" id="list-profile-list" data-toggle="list" class="w3-bar-item w3-button " role="tab" aria-controls="profile">
-                            <i class="fas fa-user-circle"></i>ข้อมูลการลงทะเบียน</a>
-                        <a href="#list-general" id="list-general-list" data-toggle="list" class="w3-bar-item w3-button " role="tab" aria-controls="general">
-                            <i class="fas fa-user-edit"></i>ข้อมูลส่วนตัว</a>
-                        <a href="#list-repassword" id="list-repassword-list" data-toggle="list" class="w3-bar-item w3-button " role="tab" aria-controls="repassword">
-                            <i class="fas fa-key"></i>เปลี่ยนรหัสผ่าน</a>
-                        <a href="#list-addrelationship" id="list-addrelationship-list" data-toggle="list" class="w3-bar-item w3-button" role="tab" aria-controls="addrelationship" >
-                            <i class="fas fa-sitemap"></i>เพิ่มความสัมพันธ์</a>
-                        <a href="#list-groupaddrelat" id="list-groupaddrelat-list" data-toggle="list" class="w3-bar-item w3-button" role="tab" aria-controls="groupaddrelat" >
-                            <i class="fas fa-users"></i>กลุ่มความสัมพันธ์</a>
-                        <a href="#list-createtree" id="list-createtree-list" data-toggle="list" class="w3-bar-item w3-button" role="tab" aria-controls="createtree" >
-                            <i class="fas fa-leaf"></i>แผนภูมิต้นไม้ครอบครัว</a>
-                        <a href="#list-search" id="list-search-list" data-toggle="list" class="w3-bar-item w3-button" role="tab" aria-controls="search">
-                            <i class="fas fa-map-marker-alt"></i>ค้นหาตำแหน่งบุคคล</a>
-                        <a href="#list-logout" id="list-logout-list" data-toggle="list" class="w3-bar-item w3-button" role="tab" aria-controls="logout">
-                            <i class="fas fa-door-closed"></i>ออกจากระบบ</a>
-                    </div>
-                </div>
+    </div>  
+                        <div class="tab" style="width:200px; margin-top: 30px;">
+                            <button class="tablinks" onclick="openCity(event, 'home')"><a><i class="fas fa-home"></i>หน้าหลัก</a></button>
+                            <button class="tablinks" onclick="openCity(event, 'user')"><a><i class="fas fa-user-circle"></i>ข้อมูลการลงทะเบียน</a></button>
+                            <button class="tablinks" onclick="openCity(event, 'profile')"><a><i class="fas fa-user-edit"></i>ข้อมูลส่วนตัว</a></button>
+                            <button class="tablinks" onclick="openCity(event, 'repassword')"><a><i class="fas fa-key"></i>เปลี่ยนรหัสผ่าน</a></button>
+                            <button class="tablinks" onclick="openCity(event, 'addrelationship')"><a><i class="fas fa-sitemap"></i>เพิ่มความสัมพันธ์</a></button>
+                            <button class="tablinks" onclick="openCity(event, 'groupaddrelat')"><a><i class="fas fa-users"></i>กลุ่มความสัมพันธ์</a></button>
+                            <button class="tablinks" onclick="openCity(event, 'createtree')"><a><i class="fas fa-leaf"></i>แผนภูมิต้นไม้ครอบครัว</a></button>
+                            <button class="tablinks" onclick="openCity(event, 'search')"><a><i class="fas fa-map-marker-alt"></i>ค้นหาตำแหน่งบุคคล</a></button>
+                            <button class="tablinks" onclick="openCity(event, 'logout')"><a><i class="fas fa-door-closed"></i>ออกจากระบบ</a></button>
+                           
+                        </div>
 
-                <div class="col-13">
-                    <div class="tab-content" id="nav-tabContent">
-                        <div class="tab-pane fade show active" id="list-home" role="tabpanel"  aria-labelledby="list-home-list">...</div>
-                        <!-- listprofile ข้อมูลการลงทะเบียน -->
-                        <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">
-                            <div class="container">
+                    
+                        <div id="home" class="tabcontent" style=" margin-top: 60px;">
+                            <h3>หน้าหลัก</h3>
+                            <p>London is the capital city of England.</p>
+                        </div>
+ <!-- listuser ข้อมูลการลงทะเบียน -->
+                        <div id="user" class="tabcontent" style=" margin-top: 60px;">
+                        <div class="container">
                                 <div class="row justify-content-center">
                                     <div class="col-md-11">
-                                        <div class="card" style="margin: 100px 30px 20px 280px">
+                                        <div class="card" style="margin: 60px 30px 20px 280px">
                                             <div class="card-header">
                                                 <i class="fas fa-user-circle"></i>
                                                 {{ __('ข้อมูลการลงทะเบียน') }}
@@ -150,14 +138,14 @@
                             </div>
                         </div>
                     </div>
-                        
-<!-- //listprofile ข้อมูลการลงทะเบียน -->  
-<!-- listgeneral ข้อมูลส่วนตัว -->  
-                        <div class="tab-pane fade" id="list-general" role="tabpanel" aria-labelledby="list-general-list">
-                            <div class="container">
+                </div>
+<!-- //listuser ข้อมูลการลงทะเบียน -->  
+<!-- listprofile ข้อมูลส่วนตัว -->  
+                        <div id="profile" class="tabcontent"style=" margin-top: 60px;">
+                        <div class="container">
                                 <div class="row justify-content-center">
-                                    <div class="col-md-11">
-                                        <div class="card" style="margin: 100px 30px 20px 280px">
+                                    <div class="col-md-13">
+                                        <div class="card" style="margin: 60px 30px 20px 280px">
                                             <div class="card-header">
                                                 <i class="fas fa-user-edit"></i>
                                                 {{ __('แบบฟอร์มกรอกประวัติส่วนตัว') }}
@@ -431,13 +419,13 @@
                             </div>
                         </div>      
                     </div>
-<!-- //listgeneral ข้อมูลส่วนตัว -->  
-<!-- listaddrelationship เปลี่ยนรหัสผ่าน --> 
-                        <div class="tab-pane fade" id="list-repassword" role="tabpanel" aria-labelledby="list-repassword-list">
+<!-- //listprofile ข้อมูลส่วนตัว -->  
+<!-- listrepassword เปลี่ยนรหัสผ่าน --> 
+                        <div id="repassword" class="tabcontent"style=" margin-top: 60px;">
                         <div class="container">
                                 <div class="row justify-content-center">
                                     <div class="col-md-11">
-                                        <div class="card" style="margin: 100px 30px 20px 280px">
+                                        <div class="card" style="margin: 60px 30px 20px 280px">
                                             <div class="card-header">
                                             <i class="fas fa-key"></i>
                                                 {{ __('เปลี่ยนรหัสผ่าน') }}
@@ -447,7 +435,7 @@
                                                 <div class="form-row" style= "margin-right:70px; margin-left:150px">
                                                     <div class="form-group col-md-10" >
                                                         <label for="Originalpassword">{{ __('รหัสผ่านเดิม') }}</label>
-                                                        <input type="text" class="form-control" placeholder="กรอกรหัสผ่านเดิม" id="inputOriginalpassword">
+                                                        <input type="text" class="form-control" id="inputOriginalpassword" value="<?php echo $_SESSION["PASSWORD"];?>"required>
                                                     </div>
                                                 </div>
                                                 <div class="form-row" style= "margin-right:70px; margin-left:150px">
@@ -488,13 +476,14 @@
                                 </div>
                             </div>
                         </div>
-                        </div>
-<!-- //listaddrelationship เปลี่ยนรหัสผ่าน -->   
-                        <div class="tab-pane fade" id="list-addrelationship" role="tabpanel" aria-labelledby="list-addrelationship-list">
+                    </div>
+<!-- //listrepassword เปลี่ยนรหัสผ่าน -->   
+<!-- addrelationship เพิ่มความสัมพันธ์ -->   
+                        <div id="addrelationship" class="tabcontent" style=" margin-top: 60px;">
                         <div class="container">
                                 <div class="row justify-content-center">
-                                    <div class="col-md-11">
-                                        <div class="card" style="margin: 100px 30px 20px 280px">
+                                    <div class="col-md-13">
+                                        <div class="card" style="margin: 60px 30px 20px 280px">
                                             <div class="card-header">
                                                 <i class="fas fa-sitemap"></i>
                                                 {{ __('เพิ่มความสัมพันธ์') }}
@@ -503,19 +492,19 @@
                                                 <form method="GET" action="{{url('inrelation')}}">  
                                                 <form>
                                                 <div class="form-row" style= "margin-right:70px; margin-left:150px">
-                                                    <div class="form-group col-md-4" >
+                                                    <div class="form-group col-md-6" >
                                                         <label for="name">{{ __('ชื่อ') }}</label>
                                                         <input type="text" class="form-control" id="my" name="my" placeholder="กรอกชื่อบุคคล">
                                                     </div>
                                                 </div>
                                                 <div class="form-row" style= "margin-right:70px; margin-left:150px">
-                                                    <div class="form-group col-md-4" style= "margin-right:20px; ">
+                                                    <div class="form-group col-md-6" style= "margin-right:20px; ">
                                                         <label for="nameme">{{ __('ชื่อ') }}</label>
                                                         <input type="text" class="form-control" id="parent" name="parent" placeholder="กรอกชื่อของคุณ" >
                                                     </div>
                                                     <div class="form-group col-md-4" >
                                                         <label for="lname" >{{ __('ความสัมพันธ์') }}</label>
-                                                        <div class="col-md-10">
+                                                        <div class="col-md-13">
                                                             <select id="relationship2" class="form-control " name="relationship2">
                                                                 <option selected>เลือก</option>
                                                                 <option>ทวด</option>
@@ -536,13 +525,13 @@
                                                     </div>
                                                 </div>
                                                 <div class="form-row" style= "margin-right:70px; margin-left:150px">
-                                                    <div class="form-group col-md-4" style= "margin-right:20px; ">
+                                                    <div class="form-group col-md-6" style= "margin-right:20px; ">
                                                         <label for="nameme">{{ __('ชื่อ') }}</label>
                                                         <input type="text" class="form-control" id="nameme" name="nameme" placeholder="กรอกชื่อบุคคล">
                                                     </div>
                                                     <div class="form-group col-md-4" >
                                                         <label for="lname" >{{ __('ความสัมพันธ์') }}</label>
-                                                        <div class="col-md-10">
+                                                        <div class="col-md-13">
                                                             <select id="relationship" class="form-control " name="relationship">
                                                                 <option selected>เลือก</option>
                                                                 <option>ทวด</option>
@@ -611,60 +600,90 @@
                         </div>
                     </div>
                 </div>
-                
-                        <div class="tab-pane fade" id="list-groupaddrelat" role="tabpanel" aria-labelledby="list-groupaddrelat-list">5575</div>
-                        <div class="tab-pane fade" id="list-createtree" role="tabpanel" aria-labelledby="list-createtree-list">7897</div>
-                        <div class="tab-pane fade" id="list-search" role="tabpanel" aria-labelledby="list-search-list">3244</div>
-                        <div class="tab-pane fade" id="list-logout" role="tabpanel" aria-labelledby="list-logout-list">2354</div>
-                    </div>
-                </div>
-            </div>
-        </div>  
+<!-- addrelationship เพิ่มความสัมพันธ์ -->
 
-  
-            <button class="open-button" onclick="openForm()">messager</button>
+                        <div id="groupaddrelat" class="tabcontent" style=" margin-top: 60px;">
+                            <h3>กลุ่มความสัมพันธ์</h3>
+                            <p>Paris is the capital of France.</p> 
+                        </div>
 
-        <script>
-            function myAccFunc() {
-            var x = document.getElementById("demoAcc");
-            if (x.className.indexOf("w3-show") == -1) {
-                x.className += " w3-show";
-                x.previousElementSibling.className += " w3-green";
-            } else { 
-                x.className = x.className.replace(" w3-show", "");
-                x.previousElementSibling.className = 
-                x.previousElementSibling.className.replace(" w3-green", "");
-            }
-        }
+                        <div id="createtree" class="tabcontent" style=" margin-top: 60px;">
+                            <h3>แผนภูมิต้นไม้</h3>
+                            <p>Paris is the capital of France.</p> 
+                        </div>
 
-            function myDropFunc() {
-            var x = document.getElementById("demoDrop");
-            if (x.className.indexOf("w3-show") == -1) {
-                x.className += " w3-show";
-                x.previousElementSibling.className += " w3-green";
-            } else { 
-                x.className = x.className.replace(" w3-show", "");
-                x.previousElementSibling.className = 
-                x.previousElementSibling.className.replace(" w3-green", "");
-            }
-        }
-        </script> 
-       
-            </div>
-        </div>
-    </div>
+                        <div id="search" class="tabcontent" style=" margin-top: 60px;">
+                            <h3>ค้นหาตำแหน่งบุคลล</h3>
+                            <p>Paris is the capital of France.</p> 
+                        </div>
+
+                        <div id="logout" class="tabcontent" style=" margin-top: 60px;">
+                            <h3>ออกจากระบบ</h3>
+                            <p>Paris is the capital of France.</p> 
+                        </div>
+
 </div>
+                    
+<style>
+        * {box-sizing: border-box}
+        body {font-family: "Lato", sans-serif;}
 
-        <button class="open-button" onclick="openForm()">messager</button>
+        /* Style the tab */
+        .tab {
+            float: left;
+            border: 1px solid #ccc;
+            background-color: #f1f1f1;
+            width: 30%;
+            height: 300px;
+        }
+
+        /* Style the buttons inside the tab */
+        .tab button {
+            display: block;
+            background-color: inherit;
+            color: black;
+            padding: 22px 16px;
+            width: 100%;
+            border: none;
+            outline: none;
+            text-align: left;
+            cursor: pointer;
+            font-size: 17px;
+        }
+
+        /* Change background color of buttons on hover */
+        .tab button:hover {
+            background-color: #ddd;
+        }
+
+        /* Create an active/current "tab button" class */
+        .tab button.active {
+            background-color: #ccc;
+        }
+
+        /* Style the tab content */
+        .tabcontent {
+            float: left;
+            padding: 0px 0px;
+            border: 0px solid #ccc;
+            width: 70%;
+            border-left: none;
+            height: 0px;
+            display: none;
+        }
+
+</style>
+
+        <button class="open-button" onclick="openForm()" ><i class="fas fa-envelope-open"></i><b>Inbox</b></button>
             <div class="chat-popup" id="myForm">
             <form action="/action_page.php" class="form-container">
             <h2>Sy Mieww</h12>
             <table class="table table-bordered">
             <tr>
-                <td>Hello!! </td>
+                <td> Hello!! </td>
                 <td>
-                    <form action="" method="POST">
-                        <a class="btn btn-info">Show</a> 
+                    <form action="{{url('Messenger')}}" method="POST">
+                        <a href="{{ url('Messenger') }}" class="btn btn-info">Show</a> 
                     </form>
                 </td>
             </tr>
@@ -680,6 +699,20 @@
 
                     function closeForm() {
                         document.getElementById("myForm").style.display = "none";
+                    }
+
+                    function openCity(evt, cityName) {
+                        var i, tabcontent, tablinks;
+                        tabcontent = document.getElementsByClassName("tabcontent");
+                    for (i = 0; i < tabcontent.length; i++) {
+                        tabcontent[i].style.display = "none";
+                    }
+                    tablinks = document.getElementsByClassName("tablinks");
+                    for (i = 0; i < tablinks.length; i++) {
+                        tablinks[i].className = tablinks[i].className.replace(" active", "");
+                    }
+                    document.getElementById(cityName).style.display = "block";
+                    evt.currentTarget.className += " active";
                     }
             </script>
             
@@ -757,5 +790,7 @@
             .form-container .btn:hover, .open-button:hover {
                 opacity: 1;
             }
+
+            
 </style>
 @endsection

@@ -29,4 +29,4 @@ Route::get('/Account', function () {
 Route::get('/AddRelationship','AddRelationship@index');
 Route::get('/Maps','MapsController@index');
 Route::get('inrelation','registed@relationformset');
-
+Route::get('/Messenger','Messenger@index');

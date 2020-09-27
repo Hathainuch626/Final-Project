@@ -36,8 +36,9 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     
-    <style>
-            
+    
+    <style >
+          
             body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 
             body, html {
@@ -45,47 +46,62 @@
               line-height: 1.8;
             }
 
-            /* Full height image header */
-            .bgimg-1 {
-                background-position: center;
-                background-size: cover;
-                background-image: url("/w3images/mac.jpg");
-                min-height: 100%;
-            }
-
             .w3-bar .w3-button {
                 padding: 16px;
             }
 
-            .w3baritemw3button {
-                margin-top: 50px;
-                margin-right: 600px;
-                margin-right: 100px;
+            .topnav {
+              overflow: hidden;
+              background-color: #333;
             }
 
-            .w3baritemw3button1 {
-                margin-right: 100px;
-
+            .topnav a {
+              float: left;
+              color: #f2f2f2;
+              text-align: center;
+              padding: 14px 16px;
+              text-decoration: none;
+              font-size: 17px;
             }
+
+            .topnav a:hover {
+              background-color: #ddd;
+              color: black;
+            }
+
+            .topnav a.active {
+              background-color: #4CAF50;
+              color: white;
+            }
+
+            .topnav-right {
+              float: right;
+            }
+
 
     </style>
 
 </head>
 <body>
+        <main class="py-4">
+            @yield('content')
+        </main>  
+
         <!-- Navbar (sit on top) -->
         <div class="w3-top">
-            <div class="w3-bar w3-black w3-card" id="myNavbar">
+            <div class="w3-bar w3-black w3-card topnav" id="myNavbar">
               <a href="{{ url('/') }}" class="w3-bar-item w3-button w3-wide">
                 <i class="fa fa-tree" aria-hidden="true"></i>
                     {{ config('MyFamilyTree', 'MyFamilyTree') }}
               </a>
               <!-- Right-sided navbar links -->
-              <div class="w3-left w3-hide-small">
+              <div class="topnav  w3-hide-small w3-black">
                 <a href="#about" class="w3-bar-item w3-button">ABOUT</a>
                 <a href="#tree" class="w3-bar-item w3-button"><i class="fas fa-seedling"></i> แผนภูมิต้นไม้</a>
                 <a href="#relat" class="w3-bar-item w3-button"><i class="fas fa-project-diagram"></i> แสดงความสัมพันธ์</a>
                 <a href="#location" class="w3-bar-item w3-button"><i class="fas fa-map-marked-alt"></i> ค้นหาตำแหน่งบุคคล</a>
                 <a href="#feedback" class="w3-bar-item w3-button"><i class="fas fa-comments"></i> ติดต่อสอบถาม</a>
+                    <div class="topnav-right">
                         <!-- Authentication Links -->
                         <?php if(!isset($_SESSION['NAME'])) { ?>
                             
@@ -96,17 +112,14 @@
                                     <a href="{{ route('register') }}" onclick="w3_close()" class="w3-bar-item w3-button">{{ __('สมัครสมาชิก') }}</a></button>
                             </form>
                             @endif
+                    </div>
                             <?php } ?>
                             <?php if(isset($_SESSION['NAME'])) { ?> 
                                 <div class="w3-dropdown">
-                                <div class="w3-dropdown-hover " style="margin-left: 700px; margin-top: -58px;">
-                                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-envelope" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                            <path fill-rule="evenodd" d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2zm13 2.383l-4.758 2.855L15 11.114v-5.73zm-.034 6.878L9.271 8.82 8 9.583 6.728 8.82l-5.694 3.44A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.739zM1 11.114l4.758-2.876L1 5.383v5.73z"/>
-                                        </svg>
-                                        <span class="badge badge-light">10</span> 
-                                            <span class="sr-only">unread messages</span>
+                                <div class="w3-dropdown-hover ">
+                              
                                     <button class="w3-button dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ><?php echo $_SESSION['NAME'];?></button>
-                                    <div class="w3-dropdown-content w3-bar-block w3-card-4">
+                                    <div class="w3-dropdown-content w3-bar-block w3-card-4 w3-dark-grey">
                                     <div>
                                             <a class="dropdown-item" href="{{url('Account')}}"
                                                 onclick="event.preventDefault();
@@ -132,6 +145,7 @@
                     <?php } ?>
                 </div>
             </div>
+ 
             <!-- Hide right-floated links on small screens and replace them with a menu icon -->
             <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
                 <i class="fa fa-bars"></i>
@@ -147,7 +161,8 @@
                 <a  onclick="w3_close()" class="w3-bar-item w3-button" href= "{{ route('login') }}">เข้าสู่ระบบ</a>
                 <a  onclick="w3_close()" class="w3-bar-item w3-button" href="{{ route('register') }}">สมัครสมาชิก</a>   
             </nav>
-        </div>                      
+        </div>  
+                       
         <script>
             // Modal Image Gallery
             function onClick(element) {
@@ -173,8 +188,7 @@
                 mySidebar.style.display = "none";
             }
         </script> 
-        <main class="py-4">
-            @yield('content')
-        </main>
+       
+        
 </body>
 </html>

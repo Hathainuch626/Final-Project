@@ -19,33 +19,88 @@
                     margin: 0;
                     padding: 0;
                 }
+
+                
+
             </style>
-            <script>
+              <script>
                 "use strict";
 
-            function initMap() {
-                const bangkok = {
-                    lat: 13.847860,
-                    lng: 100.604274
-                };
-                const map = new google.maps.Map(document.getElementById("map"), {
-                    scaleControl: true,
-                    center: bangkok,
-                    zoom: 10
-                });
-                const infowindow = new google.maps.InfoWindow();
-                infowindow.setContent("<b>กรุงเทพมหานคร</b>");
-                const marker = new google.maps.Marker({
-                    map,
-                    position: bangkok
-                });
-                marker.addListener("click", () => {
-                    infowindow.open(map, marker);
+                /*
+                    * Click the map to set a new location for the Street View camera.
+                */
+                let map;
+                let panorama;
+
+                function initMap() {
+                    const bangkok = {
+                        lat: 13.847860,
+                        lng: 100.604274,
+                    };
+                    const sv = new google.maps.StreetViewService();
+                    panorama = new google.maps.StreetViewPanorama(
+                        document.getElementById("pano")
+                    ); // Set up the map.
+
+                    map = new google.maps.Map(document.getElementById("map"), {
+                        center: bangkok,
+                        zoom: 12,
+                        streetViewControl: false,
+                    }); // Set the initial Street View camera to the center of the map
+
+                    sv.getPanorama(
+                        {
+                            location: bangkok,
+                            radius: 50,
+                        },
+                        processSVData
+                    ); // Look for a nearby Street View panorama when the map is clicked.
+                        // getPanorama will return the nearest pano when the given
+                        // radius is 50 meters or less.
+
+                    map.addListener("click", (event) => {
+                        sv.getPanorama(
+                        {
+                            location: event.latLng,
+                            radius: 50,
+                        },
+                        processSVData
+                    );
                 });
             }
-        </script>
+
+            function processSVData(data, status) {
+                if (status === "OK") {
+                    const location = data.location;
+                    const marker = new google.maps.Marker({
+                        position: location.latLng,
+                        map,
+                        title: location.description,
+                    });
+                    panorama.setPano(location.pano);
+                    panorama.setPov({
+                        heading: 270,
+                        pitch: 0,
+                    });
+                    panorama.setVisible(true);
+                    marker.addListener("click", () => {
+                        const markerPanoID = location.pano; // Set the Pano to use the passed panoID.
+
+                        panorama.setPano(markerPanoID);
+                        panorama.setPov({
+                            heading: 270,
+                            pitch: 0,
+                        });
+                        panorama.setVisible(true);
+                    });
+                } else {
+                    console.error("Street View data not found for this location.");
+                }
+             }
+    </script>
     </head>
   <body>
-    <div id="map"></div>
+  <div id="map" style="width: 45%; height: 100%; float: left"></div>
+    <div id="pano" style="width: 45%; height: 100%; float: left"></div>
   </body>
 </html>

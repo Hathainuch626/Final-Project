@@ -1,10 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card" style="margin: 20px 15px 10px">
+            <div class="card" style="margin: 100px 15px 10px">
                 <div class="card-header">{{ __('แบบฟอร์มกรอกประวัติส่วนตัว') }}</div>
 
                 <div class="card-body">

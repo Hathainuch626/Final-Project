@@ -113,7 +113,7 @@ class registed extends Controller
                 $_SESSION["LNAME"]=$user['Lastname'];
                 $_SESSION["BIRDDATE"]=$user['Birddate'];
                 $_SESSION["SEX"]=$user['Sex'];
-                return  view('index');
+                return  view('welcome');
                 //echo "success",$user;exit;
             } else {
                 echo "fail","password don't ture";exit;
