@@ -1,10 +1,10 @@
 <?php
 
 namespace App;
-use Illuminate\Database\Eloquent\Model;
+
 use Jenssegers\Mongodb\Eloquent\Model as Eloquent;
 
-class treecollection extends Model
+class treecollection extends Eloquent
 {
     //
     protected $connection = 'mongodb';

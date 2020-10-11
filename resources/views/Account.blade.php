@@ -74,12 +74,8 @@
                         <div class="tab" style="width:200px; margin-top: 30px;">
                             <button class="tablinks" onclick="openCity(event, 'home')"><a><i class="fas fa-home"></i>หน้าหลัก</a></button>
                             <button class="tablinks" onclick="openCity(event, 'user')"><a><i class="fas fa-user-circle"></i>ข้อมูลการลงทะเบียน</a></button>
-                            <button class="tablinks" onclick="openCity(event, 'profile')"><a><i class="fas fa-user-edit"></i>ข้อมูลส่วนตัว</a></button>
                             <button class="tablinks" onclick="openCity(event, 'repassword')"><a><i class="fas fa-key"></i>เปลี่ยนรหัสผ่าน</a></button>
-                            <button class="tablinks" onclick="openCity(event, 'addrelationship')"><a><i class="fas fa-sitemap"></i>เพิ่มความสัมพันธ์</a></button>
-                            <button class="tablinks" onclick="openCity(event, 'groupaddrelat')"><a><i class="fas fa-users"></i>กลุ่มความสัมพันธ์</a></button>
-                            <button class="tablinks" onclick="openCity(event, 'createtree')"><a><i class="fas fa-leaf"></i>แผนภูมิต้นไม้ครอบครัว</a></button>
-                            <button class="tablinks" onclick="openCity(event, 'search')"><a><i class="fas fa-map-marker-alt"></i>ค้นหาตำแหน่งบุคคล</a></button>
+                            <button class="tablinks" onclick="openCity(event, 'createtree')"><a><i class="fas fa-leaf"></i>สร้างแผนภูมิต้นไม้</a></button>
                             <button class="tablinks" onclick="openCity(event, 'logout')"><a><i class="fas fa-door-closed"></i>ออกจากระบบ</a></button>
                            
                         </div>
@@ -100,9 +96,19 @@
                                                 {{ __('ข้อมูลการลงทะเบียน') }}
                                             </div>
                                             <div class="card-body">
+                                                    <!--<form method="POST" action="upload.php" enctype="multipart/form-data">-->
+                                                         <!-- <center><img src="https://cdn.pixabay.com/photo/2015/09/09/14/02/icon-931551_960_720.jpg" alt="Girl in a jacket" width="150" height="150" id="imgshow"></center> -->
+                                                        <!-- <center><input id="imginput" class="form-control filestyle margin images" data-input="true" type="file" data-buttonText="Upload Logo" data-size="sm" data-badge="false" onchange="uploadImage();" name="images" style="width:28%" /></center> -->
+                                                        <center><img id="showlogo" style="background:#9d9d9d;width:170px;height:180px;" src="image\imageUser-Infouser\<?php if(isset($usertest->My_image)){
+                                                            echo $usertest->My_image;
+                                                            }else{ echo "man11.png";}?>"> </center>
+    
+                                                            <!-- <center><label for="text" class="">โลโก้</label><span class="text-muted">(.PNG)</span> </center><br> -->
+                                                            <center><input type="file" name="filelogo" id="fileimgToUpload"  OnChange="showPreviewlogo(this)"> </center><br>
+                                                        
+                                                        <br><button type="button" class="btn btn-primary btn-sm " style="margin: 10px 10px 20px 270px">เปลี่่ยนรูป</button></br>
+                                                    </form>
                                                 <form method="POST" action="{{route('regis.store')}}">
-                                                    <img src="man11.PNG" class="rounded" alt="Cinque Terre" width= "100" height="100" color="red" style="margin: 20px 10px 20px 260px">
-                                                    <br><button type="button" class="btn btn-primary btn-sm " style="margin: 10px 10px 20px 270px">เปลี่่ยนรูป</button>
                                                 <form>
                                                 <div class="form-row" style= "margin-right:70px; margin-left:150px">
                                                     <div class="form-group col-md-4" style= "margin-right:20px; ">
@@ -140,286 +146,6 @@
                     </div>
                 </div>
 <!-- //listuser ข้อมูลการลงทะเบียน -->  
-<!-- listprofile ข้อมูลส่วนตัว -->  
-                        <div id="profile" class="tabcontent"style=" margin-top: 60px;">
-                        <div class="container">
-                                <div class="row justify-content-center">
-                                    <div class="col-md-13">
-                                        <div class="card" style="margin: 60px 30px 20px 280px">
-                                            <div class="card-header">
-                                                <i class="fas fa-user-edit"></i>
-                                                {{ __('แบบฟอร์มกรอกประวัติส่วนตัว') }}
-                                            </div>
-                                            <div class="card-body">
-                                                <form method="GET" action="{{ url('createtree') }}">
-                                                <form>
-                                                <div class="form-row" style= "margin-right:70px; margin-left:180px">
-                                                    <div class="form-group col-md-8" >
-                                                        <label for="namefamily">{{ __('ตระกูล') }}</label>
-                                                        <input type="text" name="namefamily" id="namefamily" class="form-control" placeholder="กรอกชื่อครอบครัว" >
-                                                    </div>
-                                                </div>
-                                                <div class="form-row" style= "margin-right:70px; margin-left:150px">
-                                                    <div class="form-group col-md-4" style= "margin-right:20px; ">
-                                                        <label for="fname">{{ __('ชื่อ') }}</label>
-                                                        <input type="text" name="fname" id="fname" class="form-control"  placeholder="กรอกชื่อจริง" >
-                                                    </div>
-                                                    <div class="form-group col-md-4" >
-                                                        <label for="lname" >{{ __('นามสกุล') }}</label>
-                                                        <input type="text" name="lname" id="lname" class="form-control"  placeholder="กรอกนามสกุล">
-                                                    </div>
-                                                </div>
-                                                <div class="form-row">
-                                                    <div class="form-group col-md-4" style= "margin-right:20px; margin-left:150px">
-                                                        <label for="dmy">{{ __('วัน/เดือน/ปีเกิด') }}</label>
-                                                        <input type="date" name="birthday" id="birthday" class="form-control" >
-                                                    </div>
-                                                    <div class="form-group col-md-4">
-                                                        <label for="inputSex">{{ __('เพศ') }}</label>
-                                                        <div class="col-md-6">
-                                                            <select id="inputSex" class="form-control " >
-                                                                <option selected>เลือก</option>
-                                                                <option>ชาย</option>
-                                                                <option>หญิง</option>
-                                                                <option>ไม่ระบุ</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="form-row" style= "margin-right:70px; margin-left:150px">
-                                                    <div class="form-group col-md-4" style= "margin-right:20px; ">
-                                                        <label for="career">{{ __('อาชีพ') }}</label>
-                                                        <input type="text" name="career" id="career" class="form-control"  placeholder="กรอกชื่ออาชีพ" >
-                                                    </div>
-                                                    <div class="form-group col-md-6" >
-                                                        <label for="Pnumber" >{{ __('เบอร์โทรศัพท์') }}</label>
-                                                        <input type="text" name="Pnumber" id="Pnumber" class="form-control"  placeholder="กรอกเบอร์โทรศัพท์">
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="address">ที่อยู่ปัจจุบัน:</label>
-                                                    <textarea class="form-control" rows="3" id="address" name="address"></textarea>
-                                                </div>
-                                                <div class="form-row">
-                                                    <div class="form-group col-md-3" style= "margin-right:50px; margin-left:70px">
-                                                        <label for="postalcode">{{ __('รหัสไปรษณีย์') }}</label>
-                                                        <input type="text" name="postalcode" id="postalcode" class="form-control" >
-                                                    </div>
-                                                    <div class="form-group col-md-4" style= "margin-right:10px; margin-left:80px">
-                                                        <label for="inputprovince">{{ __('จังหวัด') }}</label>
-                                                        <div class="col-md-10">
-                                                            <select id="inputprovince" class="form-control " >
-                                                                <option selected>เลือก</option>
-                                                                <option>กรุงเทพมหานคร</option>
-                                                                <option>กาญจนบุรี</option>
-                                                                <option>จันทบุรี</option>
-                                                                <option>ฉะเชิงเทรา</option>
-                                                                <option>ชลบุรี</option>
-                                                                <option>ชัยนาท</option>
-                                                                <option>ตราด</option>
-                                                                <option>นครนายก</option>
-                                                                <option>นครปฐม</option>
-                                                                <option>พระนครศรีอยุธยา</option>
-                                                                <option>เพชรบุรี</option>
-                                                                <option>ระยอง</option>
-                                                                <option>ราชบุรี</option>
-                                                                <option>ลพบุรี</option>
-                                                                <option>สมุทรปราการ</option>
-                                                                <option>สมุทรสงคราม</option>
-                                                                <option>สมุทรสาคร</option>
-                                                                <option>สระแก้ว</option>
-                                                                <option>นนทบุรี</option>
-                                                                <option>สระบุรี</option>
-                                                                <option>ปทุมธานี</option>
-                                                                <option>สิงห์บุรี</option>
-                                                                <option>ประจวบคีรีขันธ์</option>
-                                                                <option>สุพรรณบุรี</option>
-                                                                <option>ปราจีนบุรี</option>
-                                                                <option>กาฬสินธ์</option>
-                                                                <option>ขอนแก่น</option>
-                                                                <option>ชัยภูมิ</option>
-                                                                <option>นครพนม</option>
-                                                                <option>นครราชสีมา</option>
-                                                                <option>บุรีรัมย์</option>
-                                                                <option>มหาสารคาม</option>
-                                                                <option>มุกดาหาร</option>
-                                                                <option>ยโสธร</option>
-                                                                <option>ร้อยเอ็ด</option>
-                                                                <option>เลย</option>
-                                                                <option>ศรีสะเกษ</option>
-                                                                <option>สกลนคร</option>
-                                                                <option>สุรินทร์</option>
-                                                                <option>หนองคาย</option>
-                                                                <option>หนองบัวลำภู</option>
-                                                                <option>อำนาจเจริญ</option>
-                                                                <option>อุดรธานี</option>
-                                                                <option>อุบลราชธานี</option>
-                                                                <option>เชียงราย</option>
-                                                                <option>เชียงใหม่</option>
-                                                                <option>น่าน</option>
-                                                                <option>พะเยา</option>
-                                                                <option>แพร่</option>
-                                                                <option>แม่ฮ่องสอน</option>
-                                                                <option>ลำปาง</option>
-                                                                <option>ลำพูน</option>
-                                                                <option>อุตรดิตถ์</option>
-                                                                <option>กระบี่</option>
-                                                                <option>ชุมพร</option>
-                                                                <option>ตรัง</option>
-                                                                <option>นครศรีธรรมราช</option>
-                                                                <option>นราธิวาส</option>
-                                                                <option>ปัตตานี</option>
-                                                                <option>พังงา</option>
-                                                                <option>พัทลุง</option>
-                                                                <option>ภูเก็ต</option>
-                                                                <option>ระนอง</option>
-                                                                <option>สตูล</option>
-                                                                <option>สงขลา</option>
-                                                                <option>สุราษฎร์ธานี</option>
-                                                                <option>ยะลา</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="address">ที่อยู่ตามทะเบียนบ้าน:</label>
-                                                    <textarea class="form-control" rows="3" id="address" name="address"></textarea>
-                                                </div>
-                                                <div class="form-row ">
-                                                    <div class="form-group col-md-3" style= "margin-right:50px; margin-left:70px">
-                                                        <label for="postalcode">{{ __('รหัสไปรษณีย์') }}</label>
-                                                        <input type="text" name="postalcode" id="postalcode" class="form-control" >
-                                                    </div>
-                                                    <div class="form-group col-md-4" style= "margin-right:10px; margin-left:80px">
-                                                        <label for="inputprovince">{{ __('จังหวัด') }}</label>
-                                                        <div class="col-md-10">
-                                                            <select id="inputprovince" class="form-control " >
-                                                                <option selected>เลือก</option>
-                                                                <option>กรุงเทพมหานคร</option>
-                                                                <option>กาญจนบุรี</option>
-                                                                <option>จันทบุรี</option>
-                                                                <option>ฉะเชิงเทรา</option>
-                                                                <option>ชลบุรี</option>
-                                                                <option>ชัยนาท</option>
-                                                                <option>ตราด</option>
-                                                                <option>นครนายก</option>
-                                                                <option>นครปฐม</option>
-                                                                <option>พระนครศรีอยุธยา</option>
-                                                                <option>เพชรบุรี</option>
-                                                                <option>ระยอง</option>
-                                                                <option>ราชบุรี</option>
-                                                                <option>ลพบุรี</option>
-                                                                <option>สมุทรปราการ</option>
-                                                                <option>สมุทรสงคราม</option>
-                                                                <option>สมุทรสาคร</option>
-                                                                <option>สระแก้ว</option>
-                                                                <option>นนทบุรี</option>
-                                                                <option>สระบุรี</option>
-                                                                <option>ปทุมธานี</option>
-                                                                <option>สิงห์บุรี</option>
-                                                                <option>ประจวบคีรีขันธ์</option>
-                                                                <option>สุพรรณบุรี</option>
-                                                                <option>ปราจีนบุรี</option>
-                                                                <option>กาฬสินธ์</option>
-                                                                <option>ขอนแก่น</option>
-                                                                <option>ชัยภูมิ</option>
-                                                                <option>นครพนม</option>
-                                                                <option>นครราชสีมา</option>
-                                                                <option>บุรีรัมย์</option>
-                                                                <option>มหาสารคาม</option>
-                                                                <option>มุกดาหาร</option>
-                                                                <option>ยโสธร</option>
-                                                                <option>ร้อยเอ็ด</option>
-                                                                <option>เลย</option>
-                                                                <option>ศรีสะเกษ</option>
-                                                                <option>สกลนคร</option>
-                                                                <option>สุรินทร์</option>
-                                                                <option>หนองคาย</option>
-                                                                <option>หนองบัวลำภู</option>
-                                                                <option>อำนาจเจริญ</option>
-                                                                <option>อุดรธานี</option>
-                                                                <option>อุบลราชธานี</option>
-                                                                <option>เชียงราย</option>
-                                                                <option>เชียงใหม่</option>
-                                                                <option>น่าน</option>
-                                                                <option>พะเยา</option>
-                                                                <option>แพร่</option>
-                                                                <option>แม่ฮ่องสอน</option>
-                                                                <option>ลำปาง</option>
-                                                                <option>ลำพูน</option>
-                                                                <option>อุตรดิตถ์</option>
-                                                                <option>กระบี่</option>
-                                                                <option>ชุมพร</option>
-                                                                <option>ตรัง</option>
-                                                                <option>นครศรีธรรมราช</option>
-                                                                <option>นราธิวาส</option>
-                                                                <option>ปัตตานี</option>
-                                                                <option>พังงา</option>
-                                                                <option>พัทลุง</option>
-                                                                <option>ภูเก็ต</option>
-                                                                <option>ระนอง</option>
-                                                                <option>สตูล</option>
-                                                                <option>สงขลา</option>
-                                                                <option>สุราษฎร์ธานี</option>
-                                                                <option>ยะลา</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="form-row" >
-                                                    <div class="form-group col-md-4" style= "margin-right:20px; margin-left:80px">
-                                                        <label for="facebook">{{ __('facebook') }}</label>
-                                                        <input type="text" name="facebook" id="facebook" class="form-control"  placeholder="กรอกชื่อหรืออีเมล" >
-                                                    </div>
-                                                    <div class="form-group col-md-4" >
-                                                        <label for="email" >{{ __('อีเมล') }}</label>
-                                                        <input type="text" name="email" id="email" class="form-control"  placeholder="example@gmail.com">
-                                                    </div>
-                                                </div>
-                                                <div class="form-row" >
-                                                    <div class="form-group col-md-6" style= "margin-right:30px; margin-left:120px">
-                                                        <label for="password">{{ __('รหัสผ่าน') }}</label>
-                                                        <input type="text" name="password" id="password" class="form-control" placeholder="ตั้งรหัสผ่าน"  >
-                                                    </div>
-                                                </div>
-                                                <div class="form-row" >
-                                                    <div class="form-group col-md-6" style= "margin-right:30px; margin-left:120px">
-                                                        <label for="password-confirm">{{ __('ยืนยันรหัสผ่าน') }}</label>
-                                                        <input type="text" name="password-confirm" id="password-confirm" class="form-control" placeholder="กรอกรหัสผ่านอีกครั้ง"  >
-                                                    </div>
-                                                </div>
-                                                
-                                                <!-- Button trigger modal -->
-                                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop" style="margin: 10px 10px 20px 250px">บันทึกประวัติส่วนตัว</button>
-
-                                                <!-- Modal -->
-                                                <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                                                    <div class="modal-dialog">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h5 class="modal-title" id="staticBackdropLabel">ยืนยันข้อมูล</h5>
-                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                    <span aria-hidden="true">&times;</span>
-                                                                </button>
-                                                            </div>
-                                                            <div class="modal-body">
-                                                                คุณได้บันทึกประวัติส่วนตัวเรียบร้อยแล้ว
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <button type="button" class="btn btn-primary">ตกลง</button>
-                                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">ปิด</button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>      
-                    </div>
-<!-- //listprofile ข้อมูลส่วนตัว -->  
 <!-- listrepassword เปลี่ยนรหัสผ่าน --> 
                         <div id="repassword" class="tabcontent"style=" margin-top: 60px;">
                         <div class="container">
@@ -438,39 +164,23 @@
                                                         <input type="text" class="form-control" id="inputOriginalpassword" value="<?php echo $_SESSION["PASSWORD"];?>"required>
                                                     </div>
                                                 </div>
+
                                                 <div class="form-row" style= "margin-right:70px; margin-left:150px">
                                                     <div class="form-group col-md-10" >
-                                                        <label for="Newpassword">{{ __('รหัสผ่านใหม่') }}</label>
-                                                        <input type="text" class="form-control" placeholder="ตั้งรหัสผ่านใหม่" id="inputNewpassword">
+                                                        <label for="password">{{ __('ตั้งรหัสผ่านใหม่') }}</label>
+                                                        <input type="text" class="form-control" id="password" >
                                                     </div>
                                                 </div>
+
                                                 <div class="form-row" style= "margin-right:70px; margin-left:150px">
                                                     <div class="form-group col-md-10" >
-                                                        <label for="Newpassword">{{ __('ยืนยีนรหัสผ่านใหม่') }}</label>
-                                                        <input type="text" class="form-control" placeholder="กรอกรหัสผ่านใหม่อีกครั้ง" id="inputNewpassword">
+                                                        <label for="password-confirm">{{ __('ยืนยันรหัสผ่านอีกครั้ง') }}</label>
+                                                        <input type="text" class="form-control" id="password-confirm" >
                                                     </div>
                                                 </div>
-                                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop1" style="margin: 10px 10px 20px 250px">เปลี่ยนรหัสผ่าน</button>
-                                                    <div class="modal fade" id="staticBackdrop1" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel1" aria-hidden="true">
-                                                        <div class="modal-dialog">
-                                                            <div class="modal-content">
-                                                                <div class="modal-header">
-                                                                    <h5 class="modal-title" id="staticBackdropLabel1">ยืนยันข้อมูล</h5>
-                                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                        <span aria-hidden="true">&times;</span>
-                                                                    </button>
-                                                                </div>
-                                                                <div class="modal-body">
-                                                                    คุณได้เปลี่ยนรหัสผ่านเรียบร้อยแล้ว
-                                                                </div>
-                                                                <div class="modal-footer">
-                                                                    <button type="button" class="btn btn-primary">ตกลง</button>
-                                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">ปิด</button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                            </form>
+                                                <button type="button" class="btn btn-primary" style="margin: 10px 10px 20px 250px">บันทึกรหัสผ่าน</button>
+                                                
+                                        </form>
                                         </div>
                                     </div>
                                 </div>
@@ -478,151 +188,82 @@
                         </div>
                     </div>
 <!-- //listrepassword เปลี่ยนรหัสผ่าน -->   
-<!-- addrelationship เพิ่มความสัมพันธ์ -->   
-                        <div id="addrelationship" class="tabcontent" style=" margin-top: 60px;">
-                        <div class="container">
-                                <div class="row justify-content-center">
-                                    <div class="col-md-13">
-                                        <div class="card" style="margin: 60px 30px 20px 280px">
-                                            <div class="card-header">
-                                                <i class="fas fa-sitemap"></i>
-                                                {{ __('เพิ่มความสัมพันธ์') }}
-                                            </div>
-                                            <div class="card-body">
-                                                <form method="GET" action="{{url('inrelation')}}">  
-                                                <form>
-                                                <div class="form-row" style= "margin-right:70px; margin-left:150px">
-                                                    <div class="form-group col-md-6" >
-                                                        <label for="name">{{ __('ชื่อ') }}</label>
-                                                        <input type="text" class="form-control" id="my" name="my" placeholder="กรอกชื่อบุคคล">
-                                                    </div>
-                                                </div>
-                                                <div class="form-row" style= "margin-right:70px; margin-left:150px">
-                                                    <div class="form-group col-md-6" style= "margin-right:20px; ">
-                                                        <label for="nameme">{{ __('ชื่อ') }}</label>
-                                                        <input type="text" class="form-control" id="parent" name="parent" placeholder="กรอกชื่อของคุณ" >
-                                                    </div>
-                                                    <div class="form-group col-md-4" >
-                                                        <label for="lname" >{{ __('ความสัมพันธ์') }}</label>
-                                                        <div class="col-md-13">
-                                                            <select id="relationship2" class="form-control " name="relationship2">
-                                                                <option selected>เลือก</option>
-                                                                <option>ทวด</option>
-                                                                <option>ปู่</option>
-                                                                <option>ย่า</option>
-                                                                <option>ตา</option>
-                                                                <option>ยาย</option>
-                                                                <option>พ่อ</option>
-                                                                <option>อา</option>
-                                                                <option>แม่</option>
-                                                                <option>น้า</option>
-                                                                <option>ลูก</option>
-                                                                <option>พี่</option>
-                                                                <option>น้อง</option>
-                                                                <option>หลาน</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="form-row" style= "margin-right:70px; margin-left:150px">
-                                                    <div class="form-group col-md-6" style= "margin-right:20px; ">
-                                                        <label for="nameme">{{ __('ชื่อ') }}</label>
-                                                        <input type="text" class="form-control" id="nameme" name="nameme" placeholder="กรอกชื่อบุคคล">
-                                                    </div>
-                                                    <div class="form-group col-md-4" >
-                                                        <label for="lname" >{{ __('ความสัมพันธ์') }}</label>
-                                                        <div class="col-md-13">
-                                                            <select id="relationship" class="form-control " name="relationship">
-                                                                <option selected>เลือก</option>
-                                                                <option>ทวด</option>
-                                                                <option>ปู่</option>
-                                                                <option>ย่า</option>
-                                                                <option>ตา</option>
-                                                                <option>ยาย</option>
-                                                                <option>พ่อ</option>
-                                                                <option>อา</option>
-                                                                <option>แม่</option>
-                                                                <option>น้า</option>
-                                                                <option>ลูก</option>
-                                                                <option>พี่</option>
-                                                                <option>น้อง</option>
-                                                                <option>หลาน</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                </div>
 
-                                                <!-- Button trigger modal -->
-                                            <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal"style="margin: 10px 10px 20px 200px">เพิ่มบุคคล</button>
-                                            <!-- Modal -->
-                                            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                <div class="modal-dialog" role="document">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <h5 class="modal-title" id="exampleModalLabel">ยืนยันข้อมูล</h5>
-                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                <span aria-hidden="true">&times;</span>
-                                                            </button>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                            คุณได้บันทึกข้อมูลความสัมพันธ์เรียบร้อยแล้ว
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                            <button type="submit" class="btn btn-primary" >ตกลง</button>
-                                                            <button type="button" class="btn btn-secondary" data-toggle="modal">ปิด</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="exampleFormControlSelect2">ข้อมูลเพิ่มบุคคล</label>
-                                                <select multiple class="form-control" id="exampleFormControlSelect2">
-                                                    <?php
-                                                        use App\relationmodel;
-                                                        $book= relationmodel::all();
-                                                        $count=relationmodel::count();
-                                                        for ($g=0; $g < $count ; $g++) { 
-                                                    ?>      
-                                                    <option><?php echo $book[$g]->parent."มีความสัมพันธ์เป็น".$book[$g]->relation."ของ".$book[$g]->my;?></option>
-                                                    <?php }
-                                                ?>
-                                                </select>
-                                            </div>
-                                            <button type="button" class="btn btn-success" style="margin: 20px 10px 20px 50px">บันทึกข้อมูล</button>
-                                            <button type="button" class="btn btn-warning" style="margin: 20px 10px 20px 50px">แก้ไข</button>
-                                            <button type="button" class="btn btn-danger" style="margin: 20px 10px 20px 50px">ยกเลิก</button>
-
-
-                                        </form>            
+<!-- listre สร้างต้นไม้ -->  
+                        <div id="createtree" class="tabcontent" style=" margin-top: 60px; margin-left: 100px;">
+                            <div class="row" style="margin-top: 60px;">
+                                <table class="table table-bordered">
+                                    <tr>
+                                        <th>No.</th>
+                                        <th>Tree name</th>
+                                        <th width="280px">Action</th>
+                                    </tr>
+                            <?php 
+                             use App\treecollection; 
+                                $treecollec=treecollection::All();
+                                $numtree=treecollection::count();
+                                $treecount=0;
+                                    for ($i=0; $i < $numtree; $i++) { 
+                                        if($_SESSION['NAME']==$treecollec[$i]->creator){?>
+                                <tr>
+                                    <td><?php $treecount++;echo $treecount;?></td>
+                                    <form action="createtree2" method="get">
+                                        <td><?php echo $treecollec[$i]->Clan;?></td>
+                                        <td>
+                                        <!-- <a class="btn btn-info" >Show</a> 
+                                        <a class="btn btn-info">Edit</a> -->
+                                        <input type="hidden" name="idd" id="idtree" value="<?php echo $treecollec[$i]->Clan;?>">
+                                        <button type="submit" class="btn btn-info">แสดง</button>
+                                            <!-- <form action="createtree2" method="get"><button type="submit" class="btn btn-info">แชร์</button></form> -->
+                                    </form>
+                                            <!-- <form action="" method="get"><button type="submit" class="btn btn-info">แชร์</button></form> -->
+                                
+                                    </td>
+                                </tr>
+                        <?php }
+                            else{
+                                //echo ("don't have");
+                                //break;
+                            }
+                        }
+                        ?>
+                        <!-- <tr>
+                            <td>1</td>
+                            <td>Clan Saeya</td>
+                            <td>
+                                <form action="" method="POST">
+                                    <a class="btn btn-info">Show</a> 
+                                    <a class="btn btn-info">Edit</a>
+                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                </form>
+                            </td>
+                        </tr> -->
+                            </table>
+                            </div>
+                            <center><button onclick="document.getElementById('id01').style.display='block'" style="width:auto;" id="A">สร้างครอบครัวของคุณ</button></center>
+                            <div id="id01" class="modal">
+                                <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+                                <form class="modal-content" action="{{ url('createtree')}}">
+                                    <div class="container">
+                                        <h1>สร้างครอบครัวของคุณ</h1>
+                                       
+                                        <hr>
+                                        <label for="Clan"><b>ชื่อครอบครัว</b></label>
+                                        <input type="text" placeholder="กรอกชื่อ" name="Clan" required class="popup" id="Clan">
+                
+                                        <!-- <label for="psw"><b>Password</b></label>
+                                        <input type="password" placeholder="Enter Password" name="psw" required class="popup" id="psw">
+                
+                                        <label for="psw-repeat"><b>Repeat Password</b></label>
+                                        <input type="password" placeholder="Repeat Password" name="psw-repeat" required class="popup"> -->
+                                        <div class="clearfix">
+                                            <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">ปิด</button>
+                                            <button type="submit" class="signupbtn" id="B">ตกลง</button>
+                                        </div>
                                     </div>
-                                </div>
+                                </form>
                             </div>
                         </div>
-                    </div>
-                </div>
-<!-- addrelationship เพิ่มความสัมพันธ์ -->
-
-                        <div id="groupaddrelat" class="tabcontent" style=" margin-top: 60px;">
-                            <h3>กลุ่มความสัมพันธ์</h3>
-                            <p>Paris is the capital of France.</p> 
-                        </div>
-
-                        <div id="createtree" class="tabcontent" style=" margin-top: 60px;">
-                            <h3>แผนภูมิต้นไม้</h3>
-                            <p>Paris is the capital of France.</p> 
-                        </div>
-
-                        <div id="search" class="tabcontent" style=" margin-top: 60px;">
-                            <h3>ค้นหาตำแหน่งบุคลล</h3>
-                            <p>Paris is the capital of France.</p> 
-                        </div>
-
-                        <div id="logout" class="tabcontent" style=" margin-top: 60px;">
-                            <h3>ออกจากระบบ</h3>
-                            <p>Paris is the capital of France.</p> 
-                        </div>
-
-</div>
                     
 <style>
         * {box-sizing: border-box}
@@ -672,12 +313,133 @@
             display: none;
         }
 
+        body {font-family: Arial, Helvetica, sans-serif;}
+    * {box-sizing: border-box;}
+
+    /* Full-width input fields */
+    .popup[type=text], .popup[type=password] {
+        width: 100%;
+        padding: 15px;
+        margin: 5px 0 22px 0;
+        display: inline-block;
+        border: none;
+        background: #f1f1f1;
+    }
+
+    /* Add a background color when the inputs get focus */
+    .popup[type=text]:focus, .popup[type=password]:focus {
+        background-color: #ddd;
+        outline: none;
+    }
+
+    /* Set a style for all buttons */
+    #A {
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+        opacity: 0.9;
+    }
+    #B {
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 0px 0;
+        border: none;
+        cursor: pointer;
+        width: 50%;
+        opacity: 0.9;
+    }
+    #B:hover {
+        opacity:1;
+    }
+    #A:hover {
+        opacity:1;
+    }
+
+    /* Extra styles for the cancel button */
+    .cancelbtn {
+        padding: 14px 20px;
+        background-color: #f44336;
+    }
+
+    /* Float cancel and signup buttons and add an equal width */
+    .cancelbtn, .signupbtn {
+        float: left;
+        width: 50%;
+    }
+
+    /* Add padding to container elements */
+    .container {
+        padding: 16px;
+    }
+
+    /* The Modal (background) */
+    .modal {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: #474e5d;
+        padding-top: 50px;
+    }
+
+    /* Modal Content/Box */
+    .modal-content {
+        background-color: #fefefe;
+        margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+        border: 1px solid #888;
+        width: 80%; /* Could be more or less, depending on screen size */
+    }
+
+    /* Style the horizontal ruler */
+    hr {
+        border: 1px solid #f1f1f1;
+        margin-bottom: 25px;
+    }
+    
+    /* The Close Button (x) */
+    .close {
+        position: absolute;
+        right: 35px;
+        top: 15px;
+        font-size: 40px;
+        font-weight: bold;
+        color: #f1f1f1;
+    }
+
+    .close:hover,.close:focus {
+        color: #f44336;
+        cursor: pointer;
+    }
+
+    /* Clear floats */
+    .clearfix::after {
+        content: "";
+        clear: both;
+        display: table;
+    }
+
+    /* Change styles for cancel button and signup button on extra small screens */
+    @media screen and (max-width: 300px) {
+        .cancelbtn, .signupbtn {
+            width: 100%;
+        }
+    }
+     
 </style>
 
         <button class="open-button" onclick="openForm()" ><i class="fas fa-envelope-open"></i><b>Inbox</b></button>
             <div class="chat-popup" id="myForm">
             <form action="/action_page.php" class="form-container">
-            <h2>Sy Mieww</h12>
+            <h2>hathainuch</h12>
             <table class="table table-bordered">
             <tr>
                 <td> Hello!! </td>
@@ -714,6 +476,8 @@
                     document.getElementById(cityName).style.display = "block";
                     evt.currentTarget.className += " active";
                     }
+
+                    
             </script>
             
             <style>

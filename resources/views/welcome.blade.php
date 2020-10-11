@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon2.ico">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -26,6 +27,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- Styles -->
+    <link href="/templates/C:\xampp\htdocs\Project0\public/favicon1.ico" rel="shortcut icon" type="image/x-icon" />
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="css/simple-sidebar.css" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
@@ -85,7 +87,7 @@
         <div class="w3-top">
             <div class="w3-bar w3-black w3-cardt topnav" id="myNavbar">
               <a href="{{ url('/') }}" class="w3-bar-item w3-button w3-wide">
-                <i class="fa fa-tree" aria-hidden="true"></i>
+                <img class="w3-image w3-round-large" src="tree11.PNG" alt="Buildings" width="25" height="25">
                     {{ config('MyFamilyTree', 'MyFamilyTree') }}
               </a>
               <!-- Right-sided navbar links -->
@@ -97,13 +99,14 @@
                 <a href="#feedback" class="w3-bar-item w3-button"><i class="fas fa-comments"></i> ติดต่อสอบถาม</a>
                       <div class="topnav-right">
                         <!-- Authentication Links -->
-                        <?php if(!isset($_SESSION['NAME'])) { ?>
+                        <?php 
+                        if(!isset($_SESSION['NAME'])) { ?>
                          
                             <form class="form-inline "  >
-                                <a  href="{{ route('login') }}" onclick="w3_close()" class="w3-bar-item w3-button " ><i class="fas fa-sign-in-alt"></i>{{ __('เข้าสู่ระบบ') }}</a></button>
+                                <a href="{{ route('login') }}" onclick="w3_close()" class="w3-bar-item w3-button" >{{ __('เข้าสู่ระบบ') }}</a></button>
                             @if (Route::has('register'))
                                 <div class="top-links ">
-                                    <a href="{{ route('register') }}" onclick="w3_close()" class="w3-bar-item w3-button " >{{ __('สมัครสมาชิก') }}</a></button>
+                                  <a href="{{ route('register') }}" onclick="w3_close()" class="w3-bar-item w3-button " >{{ __('สมัครสมาชิก') }}</a></button>
                             </form>
                             @endif
                           </div>
@@ -226,14 +229,14 @@
                   <!-- Promo Section - "We know design" -->
                   <div class="w3-container w3-dark-grey" style="padding:128px 16px" id="tree" >
                     <div class="w3-row-padding">
-                      <div class="w3-col m6">
+                      <div class="w3-col m6" >
                         <h3><i class="fas fa-seedling"></i> แผนภูมิต้นไม้</h3>
-                        <p>คุณอยากรู้ว่าบุคคลในครอบครัวอยู่ที่ไหน? </p>
-                        <p>สมัครสมาชิกหรือเข้าสู่ระบบแล้วค้นหาบุคคลในครอบครัวของคุณกันเถอะ!</p>
-                        <p><a href="#work" class="w3-button w3-black"><i class="fa fa-th"> </i> View Our Works</a></p>
+                        <p>เมื่อคุณสร้างความสัมพันธ์ คุณจะสามารถสร้างแผนภูมิต้นไม้ได้! </p>
+                        <img class="w3-image w3-round-large" src="book.PNG" alt="Buildings" width="200" height="200" >
+                        
                       </div>
                       <div class="w3-col m6">
-                        <img class="w3-image w3-round-large" src="dna.PNG" alt="Buildings" width="500" height="300">
+                        <img class="w3-image w3-round-large" src="001.PNG" alt="Buildings" width="800" height="800">
                       </div>
                     </div>
                   </div>
@@ -245,9 +248,9 @@
                       </div>
                       <div class="w3-col m6">
                         <h3> <i class="fas fa-project-diagram"></i>แสดงความสัมพันธ์</h3>
-                        <p></p>
-                        <p></p>
-                        <p><a href="#work" class="w3-button w3-black"><i class="fa fa-th"> </i> View Our Works</a></p>
+                        <p>เพียงคุณสร้างและบอกความสัมพันธ์ คุณจะได้รู้เกี่ยวกับความสัมพันธ์ภายในครอบครัว</p>
+                        <p>และรู้กลุ่มความสัมพันธ์ในครอบครัว</p>
+                        <img class="w3-image w3-round-large" src="relationship.PNG" alt="Buildings" width="200" height="200">
                       </div>
                     </div>
                   </div>
@@ -258,7 +261,8 @@
                         <h3><i class="fas fa-map-marked-alt"></i> ค้นหาตำแหน่งบุคคล</h3>
                         <p>คุณอยากรู้ว่าบุคคลในครอบครัวอยู่ที่ไหน? </p>
                         <p>สมัครสมาชิกหรือเข้าสู่ระบบแล้วค้นหาบุคคลในครอบครัวของคุณกันเถอะ!</p>
-                        <p><a href="#work" class="w3-button w3-black"><i class="fa fa-th"> </i> View Our Works</a></p>
+                        <img class="w3-image w3-round-large" src="map.PNG" alt="Buildings" width="200" height="200">
+                        
                       </div>
                       <div class="w3-col m6">
                         <img class="w3-image w3-round-large" src="global.PNG" alt="Buildings" width="500" height="300">
@@ -273,9 +277,8 @@
                       </div>
                       <div class="w3-col m6">
                         <h3><i class="fas fa-comments"></i> ติดต่อสอบถาม</h3>
-                        <p>คุณอยากรู้ว่าบุคคลในครอบครัวอยู่ที่ไหน? </p>
-                        <p>สมัครสมาชิกหรือเข้าสู่ระบบแล้วค้นหาบุคคลในครอบครัวของคุณกันเถอะ!</p>
-                        <p><a href="#work" class="w3-button w3-black"><i class="fa fa-th"> </i> View Our Works</a></p>
+                        <p>คุณอยากรู้ข้อมูลหรือสอบถามเกี่ยวกับ"My Family Tree" สามารถส่งข้อความมาได้</p>
+                        <img class="w3-image w3-round-large" src="business.PNG" alt="Buildings" width="200" height="200">
                       </div>
                     </div>
                   </div>

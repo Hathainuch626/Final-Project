@@ -1,127 +1,209 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
-        <div class="row justify-content-center">        
-            <div style="margin: 50px 15px 10px">
-                <div class="col-md-6 ">
-                    <div class="card" style="margin: 40px -300px 20px 220px">
-                        <div class="card-header">{{ __('เพิ่มความสัมพันธ์') }}</div>
-                            <div class="card-body">
-                            <form method="GET" action="{{url('inrelation')}}">
-                        @csrf
+<style>
+    * {box-sizing: border-box}
 
-                        <div class="form-group row"> 
-                            <div class="form-group row">
-                                <label for="name" class="col-md-5 col-form-label text-md-right"  >{{ __('ชื่อ') }}</label>
+    /* Set height of body and the document to 100% */
+    body, html {
+        height: 100%;
+        margin-top: 3%;
+        font-family: Arial;
+    }
 
-                            <div class="col-md-6">
-                                <input id="my" type="text" placeholder="กรอกชื่อ" class="form-control " name="my" value="{{ old('my') }}" required autocomplete="my" autofocus>   
-                            </div>
-                        </div>
+    /* Style tab links */
+    .tablink {
+        background-color: #555;
+        color: white;
+        float: left;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 14px 16px;
+        font-size: 17px;
+        width: 25%;
+    }
 
-                        <div class="form-group row">                
-                                <label for="nameme" class="col-md-2 col-form-label text-md-right">{{ __('ชื่อ') }}</label>
-                                <div class="col-md-3">
-                                    <input id="parent" type="text" placeholder="กรอกชื่อ" class="form-control"  name="parent" value="{{ old('parent') }}" required autocomplete="nameme" autofocus >
-                                </div>  
-                                
-                                <div class="form-row">
-                                    <label for="relationship2" class="col-md-6 col-form-label text-md-right">{{ __('ความสัมพันธ์') }}</label> 
-                                        <div class="col-md-6">
-                                        <select id="relationship2" class="form-control " name="relationship2">
-                                            <option selected>เลือก</option>
-                                            <option>ทวด</option>
-                                            <option>ปู่</option>
-                                            <option>ย่า</option>
-                                            <option>ตา</option>
-                                            <option>ยาย</option>
-                                            <option>พ่อ</option>
-                                            <option>อา</option>
-                                            <option>แม่</option>
-                                            <option>น้า</option>
-                                            <option>ลูก</option>
-                                            <option>พี่</option>
-                                            <option>น้อง</option>
-                                            <option>หลาน</option>
+    .tablink:hover {
+        background-color: #777;
+    }
 
-                                        </select>
-                                    </div>
-                                </div>
-                        </div>
-                        
-                        <div class="form-group row">                
-                                <label for="nameme" class="col-md-2 col-form-label text-md-right">{{ __('ชื่อ') }}</label>
-                                <div class="col-md-3">
-                                    <input type="text" placeholder="กรอกชื่อ" class="form-control" name="nameme"  value="{{ old('nameme') }}" required autocomplete="nameme" autofocus >
-                                </div>  
-                                
-                                <div class="form-row">
-                                    <label for="relationship" class="col-md-6 col-form-label text-md-right">{{ __('ความสัมพันธ์') }}</label> 
-                                        <div class="col-md-6">
-                                        <select id="relationship" class="form-control " name="relationship">
-                                            <option selected>เลือก</option>
-                                            <option>ทวด</option>
-                                            <option>ปู่</option>
-                                            <option>ย่า</option>
-                                            <option>ตา</option>
-                                            <option>ยาย</option>
-                                            <option>พ่อ</option>
-                                            <option>อา</option>
-                                            <option>แม่</option>
-                                            <option>ลูก</option>
-                                            <option>พี่</option>
-                                            <option>น้อง</option>
-                                            <option>หลาน</option>
+    /* Style the tab content (and add height:100% for full page content) */
+    .tabcontent {
+        color: black;
+        display: none;
+        padding: 100px 20px;
+        height: 100%;
+    }
 
-                                        </select>
-                                </div>
-                            </div>
-                        </div>
-                            <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#staticBackdrop"style="margin: 10px 10px 20px 180px ">เพิ่มบุคคล</button>
-                            <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="false">
-                            <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="staticBackdropLabel">ยืนยันข้อมูล</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                            <div class="modal-body">
-                                คุณได้บันทึกข้อมูลความสัมพันธ์เรียบร้อยแล้ว
-                            </div>
-                                <div class="modal-footer">
-                                    <button type="submit" class="btn btn-primary">ตกลง</button>
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">ปิด</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                            
-                    </div>
-                        <div class="form-group">
-                            <label for="exampleFormControlSelect2">ข้อมูลเพิ่มบุคคล</label>
-                                <select multiple class="form-control" id="exampleFormControlSelect2">
-                                    <?php
-                                        use App\relationmodel;
-                                            $book= relationmodel::all();
-                                            $count=relationmodel::count();
-                                                for ($g=0; $g < $count ; $g++) { 
-                                    ?>      
-                                        <option><?php echo $book[$g]->parent."มีความสัมพันธ์เป็น".$book[$g]->relation."ของ".$book[$g]->my;?></option>
-                                <?php }
-                                ?>
-                            </select>
-                        </div>
-                   
-                            <button type="button" class="btn btn-success" style="margin: 20px 10px 20px 50px">บันทึกข้อมูล</button>
-                            <button type="button" class="btn btn-warning" style="margin: 20px 10px 20px 50px">แก้ไข</button>
-                            <button type="button" class="btn btn-danger" style="margin: 20px 10px 20px 50px">ยกเลิก</button>
-                    </div>
+    #Treegroup {background-color: grey;}
+    #Relationship2 {background-color: grey;}
+    #Person {background-color: grey;}
+    #Tree1 {background-color: grey;}
+
+    /* Full-width input fields */
+    .popup[type=text], .popup[type=password] {
+        width: 100%;
+        padding: 15px;
+        margin: 5px 0 22px 0;
+        display: inline-block;
+        border: none;
+        background: #f1f1f1;
+    }
+
+    /* Add a background color when the inputs get focus */
+    .popup[type=text]:focus, .popup[type=password]:focus {
+        background-color: #ddd;
+        outline: none;
+    }
+
+    /* Set a style for all buttons */
+    #A {
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+        opacity: 0.9;
+    }
+    #B {
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 0px 0;
+        border: none;
+        cursor: pointer;
+        width: 50%;
+        opacity: 0.9;
+    }
+    #B:hover {
+        opacity:1;
+    }
+    #A:hover {
+        opacity:1;
+    }
+
+    /* Extra styles for the cancel button */
+    .cancelbtn {
+        padding: 14px 20px;
+        background-color: #f44336;
+    }
+
+    /* Float cancel and signup buttons and add an equal width */
+    .cancelbtn, .signupbtn {
+        float: left;
+        width: 50%;
+    }
+
+    /* Add padding to container elements */
+    .container {
+        padding: 16px;
+    }
+
+    /* The Modal (background) */
+    .modal {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: #474e5d;
+        padding-top: 50px;
+    }
+
+    /* Modal Content/Box */
+    .modal-content {
+        background-color: #fefefe;
+        margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+        border: 1px solid #888;
+        width: 80%; /* Could be more or less, depending on screen size */
+    }
+
+    /* Style the horizontal ruler */
+    hr {
+        border: 1px solid #f1f1f1;
+        margin-bottom: 25px;
+    }
+    
+    /* The Close Button (x) */
+    .close {
+        position: absolute;
+        right: 35px;
+        top: 15px;
+        font-size: 40px;
+        font-weight: bold;
+        color: #f1f1f1;
+    }
+
+    .close:hover,.close:focus {
+        color: #f44336;
+        cursor: pointer;
+    }
+
+    /* Clear floats */
+    .clearfix::after {
+        content: "";
+        clear: both;
+        display: table;
+    }
+
+    /* Change styles for cancel button and signup button on extra small screens */
+    @media screen and (max-width: 300px) {
+        .cancelbtn, .signupbtn {
+            width: 100%;
+        }
+    }
+</style>
+
+
+
+                <button class="tablink" onclick="openPage('Treegroup', this, 'red')" id="defaultOpen">กลุ่มต้นไม้</button>
+                <button class="tablink" onclick="openPage('Relationship2', this, 'green')" >ความสัมพันธ์</button>
+                <button class="tablink" onclick="openPage('Person', this, 'blue')">ผู้มีสิทธิ์</button>
+                <button class="tablink" onclick="openPage('Tree1', this, 'orange')">แผนภูมิต้นไม้</button>
+
+                <div id="Treegroup" class="tabcontent">
+
                 </div>
-            </div>
-        </div>
-    </form>
-</div>
+
+                <div id="Relationship2" class="tabcontent">
+                    <h3>News</h3>
+                    <p>Some news this fine day!</p> 
+                </div>
+
+                <div id="Person" class="tabcontent">
+                    
+                </div>
+
+                <div id="Tree1" class="tabcontent">
+                    <h3>About</h3>
+                    <p>Who we are and what we do.</p>
+                </div>
+
+                
+
+<script>
+        function openPage(pageName,elmnt,color) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablink");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].style.backgroundColor = "";
+            }
+            document.getElementById(pageName).style.display = "block";
+            elmnt.style.backgroundColor = color;
+            }
+
+            // Get the element with id="defaultOpen" and click on it
+            document.getElementById("defaultOpen").click();
+</script>
+
 @endsection

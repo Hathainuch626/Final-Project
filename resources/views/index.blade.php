@@ -13,7 +13,7 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
+                    <?php session_start(); print_r($_SESSION);?>
                     คุณได้ลงทะเบียนสำเร็จ !!
                 </div>
             </div>

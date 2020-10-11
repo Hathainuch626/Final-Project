@@ -3,320 +3,158 @@
 @section('content')
 
 <style>
-    * {box-sizing: border-box}
-    body {font-family: "Lato", sans-serif;}
-
-    /* Style the tab */
-    .tab {
-        overflow: hidden;
-        float: left;
-        border: 1px solid #ccc;
-        background-color: #f1f1f1;
-        width: 30%;
-        height: 300px;
-    }
-
-    /* Style the buttons inside the tab */
-    .tab button {
-        display: block;
-        background-color: inherit;
-        color: black;
-        padding: 22px 16px;
-        width: 100%;
-        border: none;
-        outline: none;
-        text-align: left;
-        cursor: pointer;
-        transition: 0.3s;
-        font-size: 17px;
-    }
-
-    /* Change background color of buttons on hover */
-    .tab button:hover {
-        background-color: #ddd;
-    }
-
-    /* Create an active/current "tab button" class */
-    .tab button.active {
-        background-color: #ccc;
-    }
-
-    /* Style the tab content */
-    .tabcontent {
-        float: left;
-        padding: 0px 12px;
-        border: 1px solid #ccc;
-        width: 70%;
-        border-left: none;
-        height: 300px;
-    }
-
-    body {
-        margin: 0;
-        font-family: Arial, Helvetica, sans-serif;
-    }
-
-    .topnav a:hover {
-        background-color: #ddd;
-        color: black;
-    }
-
-    .topnav a.active {
-        background-color: #2196F3;
-        color: white;
-    }
-
-    .topnav .search-container {
-        float: right;
-    }
-
-    .topnav input[type=text] {
-        padding: 6px;
-        margin-top: 8px;
-        font-size: 17px;
-        border: none;
-    }
-
-    .topnav .search-container button {
-        float: right;
-        padding: 6px 10px;
-        margin-top: 8px;
-        margin-right: 16px;
-        background: #ddd;
-        font-size: 17px;
-        border: none;
-        cursor: pointer;
-    }
-
-    .topnav .search-container button:hover {
-        background: #ccc;
-    }
-
-    @media screen and (max-width: 600px) {
-        .topnav .search-container {
-            float: none;
-        }
-        .topnav a, .topnav input[type=text], .topnav .search-container button {
-            float: none;
-            display: block;
-            text-align: left;
-            width: 100%;
-            margin: 0;
-            padding: 14px;
-        }
-        .topnav input[type=text] {
-            border: 1px solid #ccc;  
-        }
-
-    }
-
+    html,body,h1,h2,h3,h4,h5 {font-family: "RobotoDraft", "Roboto", sans-serif;}
+        .w3-bar-block .w3-bar-item{padding:16px}
 </style>
 
-        <div class="topnav" style="margin: 100px 15px 10px">
-            <a href="#new" onclick="w3_close()" class="active">ข้อความใหม่</a>
-            <a href="#other" onclick="w3_close()" class="w3-bar-item w3-button">ข้อความอื่นๆ</a>
-            
-            <div class="search-container ">
-                <form action="/action_page.php">
-                    <input type="text" placeholder="Search.." name="search">
-                    <button type="submit"><i class="fa fa-search"></i></button>
-                </form>
-            </div>  
-
-            <div class="w3-container w3-dark-grey " style="padding:128px 16px" id="new">
-              <h2>ข้อความใหม่</h2>
-                <div class="tab">
-                    <button class="tablinks" onclick="openCity(event, 'London')" id="defaultOpen">New1</button>
-                    <button class="tablinks" onclick="openCity(event, 'Paris')">New2</button>
-                    <button class="tablinks" onclick="openCity(event, 'Tokyo')">New3</button>
-                </div>
-
-                <div id="London" class="tabcontent">
-                    <h3>New1</h3>
-                    <button type="button" id="accept" class="btn btn-success">ยอมรับ</button>
-                    <button type="button" id="reject" class="btn btn-danger">ปฏิเสธ</button>
-                </div>
-
-                <div id="Paris" class="tabcontent">
-                    <h3>New2</h3>
-                    <button type="button" id="accept" class="btn btn-success">ยอมรับ</button>
-                    <button type="button" id="reject" class="btn btn-danger">ปฏิเสธ</button>
-                </div>
-
-                <div id="Tokyo" class="tabcontent">
-                    <h3>New3</h3>
-                    <button type="button" id="accept" class="btn btn-success">ยอมรับ</button>
-                    <button type="button" id="reject" class="btn btn-danger">ปฏิเสธ</button>
-                </div>
-            </div>
-
-        <div class="w3-container w3-dark-grey " style="padding:40px 16px" id="other">
-            <h2>ข้อความอื่นๆ</h2>
-            <div class="tab">
-                <button class="tablinks" onclick="openCity(event, 'new')" id="defaultOpen">New1</button>
-                <button class="tablinks" onclick="openCity(event, 'newnew')">New2</button>
-                <button class="tablinks" onclick="openCity(event, 'newnewnew')">New3</button>
-            </div>
-
-            <div id="new" class="tabcontent">
-                <h3>New1</h3>
-                <button type="button" id="accept" class="btn btn-success">ยอมรับ</button>
-                <button type="button" id="reject" class="btn btn-danger">ปฏิเสธ</button>
-            </div>
-
-            <div id="newnew" class="tabcontent">
-                <h3>New2</h3>
-                <button type="button" id="accept" class="btn btn-success">ยอมรับ</button>
-                <button type="button" id="reject" class="btn btn-danger">ปฏิเสธ</button>
-            </div>
-
-            <div id="newnewnew" class="tabcontent">
-                <h3>New3</h3>
-                <button type="button" id="accept" class="btn btn-success">ยอมรับ</button>
-                <button type="button" id="reject" class="btn btn-danger">ปฏิเสธ</button>
-            </div>
-        </div>
-         
-        </div> 
-      
-               
-<script>
-function openCity(evt, cityName) {
-  var i, tabbcontent, tablinks;
-  tabbcontent = document.getElementsByClassName("tabbcontent");
-  for (i = 0; i < tabcontent.length; i++) {
-    tabbcontent[i].style.display = "none";
-  }
-  tablinks = document.getElementsByClassName("tablinks");
-  for (i = 0; i < tablinks.length; i++) {
-    tablinks[i].className = tablinks[i].className.replace(" active", "");
-  }
-  document.getElementById(cityName).style.display = "block";
-  evt.currentTarget.className += " active";
-}
-</script>
-
-<script>
-    function openCity(evt, cityName) {
-        var i, tabcontent, tablinks;
-        tabcontent = document.getElementsByClassName("tabcontent");
-        for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-    }
-    tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
-    document.getElementById(cityName).style.display = "block";
-    evt.currentTarget.className += " active";
-}
-
-    // Get the element with id="defaultOpen" and click on it
-    document.getElementById("defaultOpen").click();
-
-    function openForm() {
-        document.getElementById("myForm").style.display = "block";
-}
-
-    function closeForm() {
-        document.getElementById("myForm").style.display = "none";
-}
-</script>
-
-<button class="open-button" onclick="openForm()"> <i class="fas fa-comment-dots"></i>ส่งข้อความ</button>
-
-    <div class="chat-popup" id="myForm">
-        <form action="/action_page.php" class="form-container">
+<!-- Side Navigation -->
+                    <nav class="w3-sidebar w3-bar-block w3-collapse w3-white w3-animate-left w3-card" style="z-index:3;width:320px; margin-top:40px;" id="mySidebar">
+                        
+                        <a href="javascript:void(0)" onclick="w3_close()" title="Close Sidemenu" 
+                        class="w3-bar-item w3-button w3-hide-large w3-large">Close <i class="fa fa-remove"></i></a>
+                        <a href="javascript:void(0)" class="w3-bar-item w3-button w3-dark-grey w3-button w3-hover-black w3-left-align" onclick="document.getElementById('id01').style.display='block'">New Message <i class="w3-padding fa fa-pencil"></i></a>
+                        <a id="myBtn" onclick="myFunc('Demo1')" href="javascript:void(0)" class="w3-bar-item w3-button"><i class="fa fa-inbox w3-margin-right"></i>Inbox (3)<i class="w3-margin-left fa fa-caret-down"></i></a>
+                            <div id="Demo1" class="w3-hide w3-animate-left">
+                                <a href="javascript:void(0)" class="w3-bar-item w3-button w3-border-bottom test w3-hover-light-grey" onclick="openMail('Borge');w3_close();" id="firstTab">
+                                    <div class="w3-container">
+                                        <img class="w3-round w3-margin-right" src="/w3images/avatar3.png" style="width:15%;"><span class="w3-opacity w3-large">Borge Refsnes</span>
+                                        <h6>Subject: Remember Me</h6>
+                                        <p>Hello, i just wanted to let you know that i'll be home at...</p>
+                                    </div>
+                                </a>
+                                <a href="javascript:void(0)" class="w3-bar-item w3-button w3-border-bottom test w3-hover-light-grey" onclick="openMail('Jane');w3_close();">
+                                    <div class="w3-container">
+                                        <img class="w3-round w3-margin-right" src="/w3images/avatar5.png" style="width:15%;"><span class="w3-opacity w3-large">Jane Doe</span>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+                                    </div>
+                                </a>
+                                <a href="javascript:void(0)" class="w3-bar-item w3-button w3-border-bottom test w3-hover-light-grey" onclick="openMail('John');w3_close();">
+                                    <div class="w3-container">
+                                    <img class="w3-round w3-margin-right" src="/w3images/avatar2.png" style="width:15%;"><span class="w3-opacity w3-large">John Doe</span>
+                                    <p>Welcome!</p>
+                                    </div>
+                                </a>
+                            </div>
+                            <a href="#" class="w3-bar-item w3-button"><i class="fa fa-paper-plane w3-margin-right"></i>Sent</a>
+                            <a href="#" class="w3-bar-item w3-button"><i class="fa fa-hourglass-end w3-margin-right"></i>Drafts</a>
+                            <a href="#" class="w3-bar-item w3-button"><i class="fa fa-trash w3-marghin-right"></i>Trash</a>
+                    </nav>
   
-            <h2>ส่งข้อความ</h2>
-
-            <label for="nabout">ชื่อเรื่อง:</label>
-            <input type="text" id="newabout" name="newabout" placeholder="กรอกเรื่อง">
-            <label for="nname">ชื่อผู้รับ:</label>
-            <input type="text" id="newname" name="newabout" placeholder="กรอกชื่อผู้รับ">
-
-            <label for="msg"><b>ข้อความ</b></label>
-            <textarea placeholder="พิมพ์ข้อความ...." name="msg" required></textarea>
-
-            <button type="submit" class="btn">ส่ง</button>
-    
-            <button type="button" class="btn cancel" onclick="closeForm()">ปิด</button>
-        </form>
-    </div>
-
-<style>
-    body {font-family: Arial, Helvetica, sans-serif;}
-    * {box-sizing: border-box;}
-
-    /* Button used to open the chat form - fixed at the bottom of the page */
-    .open-button {
-        background-color: #555;
-        color: white;
-        padding: 16px 20px;
-        border: none;
-        cursor: pointer;
-        opacity: 0.8;
-        position: fixed;
-        bottom: 23px;
-        right: 28px;
-        width: 280px;
-    }
-
-    /* The popup chat - hidden by default */
-    .chat-popup {
-        display: none;
-        position: fixed;
-        bottom: 0;
-        right: 15px;
-        border: 3px solid #f1f1f1;
-        z-index: 9;
-    }
-
-    /* Add styles to the form container */
-    .form-container {
-        max-width: 300px;
-        padding: 10px;
-        background-color: white;
-    }
-
-    /* Full-width textarea */
-    .form-container textarea {
-         width: 100%;
-        padding: 15px;
-        margin: 5px 0 22px 0;
-        border: none;
-        background: #f1f1f1;
-        resize: none;
-        min-height: 200px;
-    }
-
-    /* When the textarea gets focus, do something */
-    .form-container textarea:focus {
-        background-color: #ddd;
-        outline: none;
-    }
-
-    /* Set a style for the submit/send button */
-    .form-container .btn {
-        background-color: #4CAF50;
-        color: white;
-        padding: 16px 20px;
-        border: none;
-        cursor: pointer;
-        width: 100%;
-        margin-bottom:10px;
-        opacity: 0.8;
-    }
-
-    /* Add a red background color to the cancel button */
-    .form-container .cancel {
-        background-color: red;
-    }
-
-    /* Add some hover effects to buttons */
-        .form-container .btn:hover, .open-button:hover {
-        opacity: 1;
-    }
-</style>
+                        <!-- Modal that pops up when you click on "New Message" -->
+                        <div id="id01" class="w3-modal" style="z-index:4" >
+                            <div class="w3-modal-content w3-animate-zoom" >
+                                <div class="w3-container w3-padding w3-red" >
+                                    <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-right w3-xxlarge" ><i class="fa fa-remove"></i></span>
+                                    <h2>Send Mail</h2>
+                                </div>
+                                <div class="w3-panel">
+                                    <label>To</label>
+                                    <input class="w3-input w3-border w3-margin-bottom" type="text">
+                                        <label>From</label>
+                                        <input class="w3-input w3-border w3-margin-bottom" type="text">
+                                            <label>Subject</label>
+                                            <input class="w3-input w3-border w3-margin-bottom" type="text">
+                                            <input class="w3-input w3-border w3-margin-bottom" style="height:150px" placeholder="What's on your mind?">
+                                            <div class="w3-section">
+                                                <a class="w3-button w3-red" onclick="document.getElementById('id01').style.display='none'">Cancel  <i class="fa fa-remove"></i></a>
+                                                <a class="w3-button w3-right" onclick="document.getElementById('id01').style.display='none'">Send  <i class="fa fa-paper-plane"></i></a> 
+                                    </div>    
+                                </div>
+                            </div>
+                        </div>
+  
+                    <!-- Overlay effect when opening the side navigation on small screens -->
+                    <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="Close Sidemenu" id="myOverlay"></div>
+                    
+                    <!-- Page content -->
+                        <div class="w3-main" style="margin-left:320px;" >
+                            <i class="fa fa-bars w3-button w3-white w3-hide-large w3-xlarge w3-margin-top" onclick="w3_open()"></i>
+                            <a href="javascript:void(0)" class="w3-hide-large w3-red w3-button w3-right w3-margin-top w3-margin-right" onclick="document.getElementById('id01').style.display='block'"><i class="fa fa-pencil"></i></a>
+                    
+                            <div id="Borge" class="w3-container person" style="margin-top:50px;">
+                                <br>
+                                <img class="w3-round  w3-animate-top" src="/w3images/avatar3.png" style="width:20%;">
+                                <h5 class="w3-opacity">Subject: Remember Me</h5>
+                                <h4><i class="fa fa-clock-o"></i> From Borge Refsnes, Sep 27, 2015.</h4>
+                                <a class="w3-button" href="#">Reply<i class="w3-padding fa fa-mail-reply"></i></a>
+                                <a class="w3-button" href="#">Forward<i class="w3-padding fa fa-arrow-right"></i></a>
+                                <hr>
+                                <p>Hello, i just wanted to let you know that i'll be home at lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                <p>Best Regards, <br>Borge Refsnes</p>
+                            </div>
+  
+                            <div id="Jane" class="w3-container person" style="margin-top:50px;">
+                                <br>
+                                <img class="w3-round w3-animate-top" src="/w3images/avatar5.png" style="width:20%;">
+                                <h5 class="w3-opacity">Subject: None</h5>
+                                <h4><i class="fa fa-clock-o"></i> From Jane Doe, Sep 25, 2015.</h4>
+                                <a class="w3-button">Reply<i class="w3-padding fa fa-mail-reply"></i></a>
+                                <a class="w3-button">Forward<i class="w3-padding fa fa-arrow-right"></i></a>
+                                <hr>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                <p>Forever yours,<br>Jane</p>
+                            </div>
+  
+                            <div id="John" class="w3-container person" style="margin-top:50px;">
+                                <br>
+                                <img class="w3-round w3-animate-top" src="/w3images/avatar2.png" style="width:20%;">
+                                <h5 class="w3-opacity">Subject: None</h5>
+                                <h4><i class="fa fa-clock-o"></i> From John Doe, Sep 23, 2015.</h4>
+                                <a class="w3-button">Reply<i class="w3-padding fa fa-mail-reply"></i></a>
+                                <a class="w3-button">Forward<i class="w3-padding fa fa-arrow-right"></i></a>
+                                <hr>
+                                <p>Welcome.</p>
+                                <p>That's it!</p>
+                            </div>
+                                
+                    </div>
+  
+  <script>
+        var openInbox = document.getElementById("myBtn");
+        openInbox.click();
+        
+        function w3_open() {
+            document.getElementById("mySidebar").style.display = "block";
+            document.getElementById("myOverlay").style.display = "block";
+        }
+        
+        function w3_close() {
+            document.getElementById("mySidebar").style.display = "none";
+            document.getElementById("myOverlay").style.display = "none";
+        }
+        
+        function myFunc(id) {
+            var x = document.getElementById(id);
+                if (x.className.indexOf("w3-show") == -1) {
+                x.className += " w3-show"; 
+                x.previousElementSibling.className += " w3-red";
+            } else { 
+                x.className = x.className.replace(" w3-show", "");
+                x.previousElementSibling.className = 
+                x.previousElementSibling.className.replace(" w3-red", "");
+            }
+        }
+  
+        openMail("Borge")
+        function openMail(personName) {
+            var i;
+            var x = document.getElementsByClassName("person");
+                for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+                x = document.getElementsByClassName("test");
+                for (i = 0; i < x.length; i++) {
+                    x[i].className = x[i].className.replace(" w3-light-grey", "");
+                }
+                document.getElementById(personName).style.display = "block";
+                event.currentTarget.className += " w3-light-grey";
+        }
+  </script>
+  
+  <script>
+    var openTab = document.getElementById("firstTab");
+        openTab.click();
+  </script>
 
 @endsection
