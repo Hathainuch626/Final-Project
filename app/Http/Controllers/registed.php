@@ -51,6 +51,7 @@ class registed extends Controller
         $registednew->Sex=$request->get('sex');
         $registednew->Email=$request->get('email');
         $registednew->Password=$request->get('password');
+        $registednew->image_user=null;
         $registednew->save();
         session_start();
         $_SESSION["EMAIL"]=$request->get('email');
@@ -119,6 +120,7 @@ class registed extends Controller
                 $_SESSION["LNAME"]=$user['Lastname'];
                 $_SESSION["BIRDDATE"]=$user['Birddate'];
                 $_SESSION["SEX"]=$user['Sex'];
+                $_SESSION["IMAGE"]=$user->image_user;
                 return  view('welcome');
                 //echo "success",$user;exit;
             } else {
@@ -419,6 +421,23 @@ class registed extends Controller
         $usertest->postaddrtrue=$request->get('postalcode2');
         $usertest->facebook=$request->get('facebook');
         $usertest->creator=$_SESSION['NAME'];
+        $usertest->save();
+        if(isset($_FILES['filelogo'])) {
+            $this->validate($request,
+            ['filelogo' => 'required|image|mimes:png,jpeg|max:5048']);
+            $foder = 'image\imageUser-Infouser';
+            //$foderimg = 'project\img_backgrund';
+            $filename = $request->file('filelogo')->getClientOriginalName();
+            $nameimg = rand() . '.' . $filename;
+            // $pathimg = $request->file('img')->store('imgaccount/',$nameimg);
+            $pathimg = Image::make($request->file('filelogo'))->fit(170, 180, function ($constraint) {
+                $constraint->aspectRatio();
+            });
+            $pathimg->save(public_path($foder. '/' .$nameimg));
+            $usertest->My_image=$nameimg;
+        }else{
+            $usertest->My_image=null;
+        }
         $usertest->save();
         echo "<script>alert('save');</script>";
         return  redirect('historyform?clan='.$request->get("Clan").'&id_menber='.$request->get('id_menber').'&id_name='.$usertest->Firstname.'');

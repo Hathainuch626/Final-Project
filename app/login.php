@@ -14,7 +14,7 @@ class login extends Eloquent
      * @var array
      */
     protected $fillable = [
-        'Firstname', 'Lastname', 'Birddate','Sex','Email','Password',
+        'Firstname', 'Lastname', 'Birddate','Sex','Email','Password','image_user'
     ];
     protected $hidden = [
         'password', 'remember_token',

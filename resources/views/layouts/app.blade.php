@@ -22,6 +22,9 @@
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -34,9 +37,10 @@
     <!-- W3.CSS -->
     <script src='https://kit.fontawesome.com/a076d05399.js'></script>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href='https://fonts.googleapis.com/css?family=RobotoDraft' rel='stylesheet' type='text/css'>
+
+    
     
     
     
@@ -99,11 +103,7 @@
               </a>
               <!-- Right-sided navbar links -->
               <div class="topnav  w3-hide-small w3-black">
-                <a href="#about" class="w3-bar-item w3-button">ABOUT</a>
-                <a href="#tree" class="w3-bar-item w3-button"><i class="fas fa-seedling"></i> แผนภูมิต้นไม้</a>
-                <a href="#relat" class="w3-bar-item w3-button"><i class="fas fa-project-diagram"></i> แสดงความสัมพันธ์</a>
-                <a href="#location" class="w3-bar-item w3-button"><i class="fas fa-map-marked-alt"></i> ค้นหาตำแหน่งบุคคล</a>
-                <a href="#feedback" class="w3-bar-item w3-button"><i class="fas fa-comments"></i> ติดต่อสอบถาม</a>
+                
                     <div class="topnav-right">
                         <!-- Authentication Links -->
                         <?php  if(!isset($_SESSION['NAME'])) { ?>
